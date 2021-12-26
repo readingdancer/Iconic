@@ -51,7 +51,7 @@ With Iconic you will be able to create a property editor that can use virtually 
 		</None>
 		<None Include="..\README.nuget.md">
 			<Pack>True</Pack>
-			<PackagePath></PackagePath>
+			<PackagePath>README.md</PackagePath>
 		</None>
     </ItemGroup>
 
