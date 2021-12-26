@@ -53,7 +53,8 @@
         <RazorCompileOnBuild>false</RazorCompileOnBuild>
         <RazorCompileOnPublish>false</RazorCompileOnPublish>
     </PropertyGroup>
-	
-    
+
+	<Import Project="..\Our.Iconic\build\Our.Iconic.targets" />
+
 
 </Project>
