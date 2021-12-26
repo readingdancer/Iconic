@@ -7,6 +7,9 @@ With Iconic you will be able to create a property editor that can use virtually 
 ## Installation
 
 Use V3 for Umbraco 8 & 9\
+
+Previous versions of this package are on https://github.com/KOBENDigital/Iconic
+Use V2 for Umbraco 8
 Use V1 for Umbraco 7
 
 ### Umbraco Package
