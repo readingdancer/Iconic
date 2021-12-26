@@ -7,9 +7,7 @@ With Iconic you will be able to create a property editor that can use virtually 
 ## Installation
 
 Use V3 for Umbraco 8 & 9\
-
-Previous versions of this package are on https://github.com/Skartknet/Iconic
-Use V2 for Umbraco 8
+Use V2 for Umbraco 8\
 Use V1 for Umbraco 7
 
 ### Nuget
@@ -158,6 +156,11 @@ If you try to use Glyphicons as part of the Bootstrap package, you will realise 
 Currently if you are using font awesome pro and stacked content, icons will not render correctly in stacked content preview
 
 # Changelog
+- 3.1.1
+    - Multi-targeted build.
+    - Split packages for Web and Core.
+    - Improved Prevalues editor form validation.
+    - Modified some configuration labels to make it easier to understand.
 - 3.1.0
     - Added icon preview to package configuration.
     - #30 fixed virtual path issues
