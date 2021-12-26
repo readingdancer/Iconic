@@ -6,6 +6,9 @@ With Iconic you will be able to create a property editor that can use virtually 
 
 ## Installation
 
+Use V3 for Umbraco 8 & 9\
+Use V1 for Umbraco 7
+
 ### Nuget
 [![NuGet](https://buildstats.info/nuget/Koben.Iconic)](https://www.nuget.org/packages/Koben.Iconic/)
 
@@ -30,7 +33,7 @@ You have to create a new datatype from the Iconic editor:
 2. Right click on *DataTypes*, click *Create* and click on *New data type*.
 3. Enter a name for your datatype and select Iconic from the *Property Editor* dropdown.
 
-<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/datatype.png" width="600" alt="Create datatype" >
+<img src="Documentation/datatype.png" width="600" alt="Create datatype" >
 
 At this point I would recommend you to save your datatype as the configuration can take a bit of trial an error as you will need to deal with some regex and urls.
 
@@ -63,27 +66,33 @@ For example, some packages like Font Awesome use css rules to apply the specific
 <i class="fa fa-glass"></i> (Template: <i class="fa {icon}"></i>)
 ```
 
-Other packages like Material Icons use the glyph codes or even ligatures to display the icon instead a specific css selector. 
+Other packages like Material Icons use the glyph codes or even ligatures to display the icon instead of a specific css selector. 
 ```
 <i class="material-icons">alarm</i> (Template: <i class="material-icons">{icon}</i>)
 ```
-So this file can be the same css file or another files use to extract the icons property. In the case of Material Icons for instance there is a file called <a href="https://github.com/google/material-design-icons/blob/master/iconfont/codepoints">codepoints</a> where you can extract the icons names from.
+So this file can be the same css file or another files used to extract the icons property. In the case of Material Icons for instance there is a file called <a href="iconfont/codepoints">codepoints</a> where you can extract the icons names from.
 
 ##### Material Icons
 If you're having issues configuring Material Icons, try this configuration:
 
 **Css File**: https://fonts.googleapis.com/icon?family=Material+Icons
 
-**Rules file**: https://raw.githubusercontent.com/google/material-design-icons/master/iconfont/codepoints
+**Rules file**: https://github.com/mattecapu/md-icons-codepoints
 
 ##### Font Awesome 5
 The version 5 is a bit tricky to configure. There is a <a href="https://www.edg3.co.uk/blog/how-to-add-font-awesome-v5-icons-using-iconic-in-umbraco/">great post</a> about it, thanks to Christopher Robinson.
 
+#### Icon Preview (V3)
+If everything is configured properly, and Iconic can extract a list of your icons, you will be able to preview your configured Template. Click the Reload Preview button and you should get a preview of the first icon found on your source file.
+
+**Cool tip:** you can preview changes to your template in real time (no need to click *Reload preview*) :boom:.
+
+<img src="Documentation/icon-preview.png" width="600" alt="Icon preview" />
 
 #### Pre configured packages
 To make your life easier I have included some help to configure your packages in the form of pre-configured packages. If you select *Pre-Configured* when creating your package, you will have access to a list of pre-configured ones. You will still have to enter your css file path.
 
-<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/addPreConfig.png" width="600" alt="Pre-configured package" >
+<img src="Documentation/addPreConfig.png" width="600" alt="Pre-configured package" />
 
 You can add as many packages you like. You can also arrange their order or remove those you don't want to use anymore.
 
@@ -92,23 +101,23 @@ You can add as many packages you like. You can also arrange their order or remov
 #### Reviewing your configuration
 Once you have added your configuration, this will be added to the configurations list. You add add as many as you want. To review the details of your configured package just click on them:
 
-<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/configDetails.png" width="600" alt="See configuration details" >
+<img src="Documentation/configDetails.png" width="600" alt="See configuration details" >
 
 You will get a read-only list of your values. To edit them just click on the Edit Package option.
 
 ### Using the DataType
 Once you have configured your datatype, you can use it as a property editor.
 
-<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/select-editor.png" width="300" alt="Create property" >
+<img src="Documentation/select-editor.png" width="300" alt="Create property" >
 
 To add or modify your icon just click on the placeholder, this will open a dialog where you can select form your configured packages. Once a package is selected, all the icons will be displayed below.
-<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/using-iconic.png" width="600" alt="Using Iconic" >
+<img src="Documentation/using-iconic.png" width="600" alt="Using Iconic" >
 
 ### <a name="displaying"></a> Displaying the icon
 Iconic comes with a value converter that will return a HtmlString containing the icon html. So you just have to use the model of your template like so:
 
 ```
-@Html.Raw(Model.Content.MyIcon)
+@Html.Raw(Model.MyIcon)
 ```
 
 Remember to wrap the icon in Html.Raw so Razor displays the returned html properly.
@@ -120,7 +129,7 @@ There is a second way of rendering your icon that allow you to add extra classes
 **For this extension to work you'll have to include `@using Iconic.Helpers` on your view.**
 
 Example:
-    @Html.RenderIcon(Model.Content.MyIcon, "dataX='mydata'", "myclass")
+    @Html.RenderIcon(Model.MyIcon, "dataX='mydata'", "myclass")
 
 If you had a template like `<i class="fa {icon} {classes} fa-5x" {attributes}></i>` This will render to:
 
@@ -128,6 +137,10 @@ If you had a template like `<i class="fa {icon} {classes} fa-5x" {attributes}></
 
 Note that to render `data-x` you have to enter `dataX` as your attribute name.
 
+## Test Website Credentials:
+
+Username: `admin@admin.com`\
+Password: `Password123`
 
 ## Known issues
 
@@ -141,16 +154,15 @@ If you try to use Glyphicons as part of the Bootstrap package, you will realise 
 ### Font Awesome Pro
 Currently if you are using font awesome pro and stacked content, icons will not render correctly in stacked content preview
 
-
-# Umbraco Versions
-Iconic has been tested with Umbraco 7.6 and 7.7.
-
-# Donate
-This package is maintaned by Mario Lopez. If you want to say thank you:
-
-<a href="https://www.buymeacoffee.com/skartknet" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/yellow_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
-
 # Changelog
+- 3.1.0
+    - Added icon preview to package configuration.
+    - #30 fixed virtual path issues
+- 3.0.0
+    - Compatible with Umbraco 9
+- 2.3.1 
+    - Compatible with Umbraco 8.7
+    - Support for virtual paths.
 - 1.6
     - Unable to cast object of type 'Newtonsoft.Json.Linq.JObject' to type 'System.String'. FIXED
     - Added Pre-Configurations for Font Awesome 5.
