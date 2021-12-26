@@ -140,4 +140,4 @@ Currently if you are using font awesome pro and stacked content, icons will not 
 
 ---
 
-Handmade by Mario Lopez - 2018 @KobenDigital
+Handmade by Mario Lopez - 2018 @OurDigital

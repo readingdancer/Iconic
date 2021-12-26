@@ -10,11 +10,11 @@ Use V3 for Umbraco 8 & 9\
 Use V1 for Umbraco 7
 
 ### Nuget
-[![NuGet](https://buildstats.info/nuget/Koben.Iconic)](https://www.nuget.org/packages/Koben.Iconic/)
+[![NuGet](https://buildstats.info/nuget/Our.Iconic)](https://www.nuget.org/packages/Our.Iconic/)
 
 You can run the following command from within Visual Studio:
 
-    PM> Install-Package Koben.Iconic
+    PM> Install-Package Our.Iconic
 
 ### Umbraco Package
 https://our.umbraco.com/packages/backoffice-extensions/iconic/
@@ -197,4 +197,4 @@ Currently if you are using font awesome pro and stacked content, icons will not 
 
 ---
 
-Handmade by Mario Lopez - 2018 @KobenDigital
+Handmade by Mario Lopez - 2018 @OurDigital

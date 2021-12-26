@@ -1,7 +1,7 @@
 ﻿{
   "propertyEditors": [
     {
-      "alias": "koben.iconic",
+      "alias": "our.iconic",
       "name": "Iconic",
       "icon": "icon-binoculars",
       "group": "Pickers",

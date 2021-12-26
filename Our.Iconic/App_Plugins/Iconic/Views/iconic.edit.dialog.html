@@ -1,4 +1,4 @@
-<div ng-controller="Koben.Iconic.Prevalues.Editor">
+<div ng-controller="Our.Iconic.Prevalues.Editor">
     <form name="packageForm" novalidate>
         <umb-editor-view>
 
@@ -98,7 +98,7 @@
                             <legend>
                                 <localize key="iconicConfig_preview">Preview</localize>
                             </legend>
-                            <div class="koben-iconic__container preview flex">
+                            <div class="our-iconic__container preview flex">
                                 <div class="umb-panel-header-icon">
                                     <iconic-icon package="model.package" icon="previewIcon">
                                     </iconic-icon>
@@ -117,11 +117,12 @@
                 </umb-box>
 
                 <umb-box ng-show="error" class="umb-alert--warning" style="background-color: #f5c1bc;">
-                    <umb-box-content><umb-icon icon="icon-alert"></umb-icon> {{ error }}</umb-box-content>
+                    <umb-box-content>
+                        <umb-icon icon="icon-alert"></umb-icon> {{ error }}</umb-box-content>
                 </umb-box>
             </umb-editor-container>
 
-           
+
 
 
             <umb-editor-footer>

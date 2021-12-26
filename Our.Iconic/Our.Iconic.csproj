@@ -8,10 +8,10 @@ With Iconic you will be able to create a property editor that can use virtually 
         <PackageTags>umbraco plugin package icon picker editor backoffice</PackageTags>
 		<Version>3.1.1-pre001</Version>
 		<Authors>Mario Lopez</Authors>
-		<PackageProjectUrl>https://github.com/KOBENDigital/Iconic</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/Skartknet/Iconic</PackageProjectUrl>
 		<PackageIcon>iconic_logo.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<RepositoryUrl>https://github.com/KOBENDigital/Iconic</RepositoryUrl>
+		<RepositoryUrl>https://github.com/Skartknet/Iconic</RepositoryUrl>
 		<PackageReleaseNotes></PackageReleaseNotes>
 		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>		
@@ -56,6 +56,9 @@ With Iconic you will be able to create a property editor that can use virtually 
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Koben.Iconic.Core\Koben.Iconic.Core.csproj" />
-    </ItemGroup>	
+      <ProjectReference Include="..\Our.Iconic.Core\Our.Iconic.Core.csproj" />
+    </ItemGroup>
+
+	<Import Project="..\Iconic\build\Koben.Iconic.targets" />
+
 </Project>

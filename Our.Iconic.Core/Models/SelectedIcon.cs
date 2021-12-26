@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Koben.Iconic.Core.Models
+namespace Our.Iconic.Core.Models
 {
     public class SelectedIcon
     {

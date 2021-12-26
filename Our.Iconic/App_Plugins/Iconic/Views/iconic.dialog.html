@@ -1,25 +1,16 @@
-﻿<div class="koben-iconic__dialog" ng-controller="Koben.Iconic.Dialog.Controller">
+﻿<div class="our-iconic__dialog" ng-controller="Our.Iconic.Dialog.Controller">
 
     <div class="umb-control-group">
         <div class="form-search">
             <i class="icon-search"></i>
-            <input type="text"
-                   style="width: 100%"
-                   ng-model="searchTerm"
-                   class="umb-search-field search-query input-block-level"
-                   localize="placeholder"
-                   placeholder="@placeholders_filter"
-                   umb-auto-focus
-                   no-dirty-check>
+            <input type="text" style="width: 100%" ng-model="searchTerm" class="umb-search-field search-query input-block-level" localize="placeholder" placeholder="@placeholders_filter" umb-auto-focus no-dirty-check>
         </div>
     </div>
 
 
 
     <div class="umb-control-group" ng-if="packages.length > 1">
-        <select class="input-block-level" ng-model="pckgselected"
-                ng-change="loadPackage(pckgselected)"
-                ng-options="p as p.name for p in packages">
+        <select class="input-block-level" ng-model="pckgselected" ng-change="loadPackage(pckgselected)" ng-options="p as p.name for p in packages">
             <option value=""><localize key="iconicDialog_selectOption">Select an option...</localize></option>
         </select>
     </div>
@@ -40,13 +31,11 @@
         </ul>
     </div>
 
-    <umb-empty-state ng-if="pckgselected && filtered.length === 0 && !loading"
-                     position="center">
+    <umb-empty-state ng-if="pckgselected && filtered.length === 0 && !loading" position="center">
         <localize key="iconicDialog_noIconsFound">No icons were found.</localize>
     </umb-empty-state>
 
-    <umb-empty-state ng-if="!pckgselected && !loading"
-                     position="center">
+    <umb-empty-state ng-if="!pckgselected && !loading" position="center">
         <localize key="iconicDialog_noPackageSelected">No package selected.</localize>
     </umb-empty-state>
 </div>

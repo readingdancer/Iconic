@@ -1,5 +1,5 @@
 angular.module("umbraco")
-    .controller("Koben.Iconic.Controller", ['$scope', 'assetsService', 'umbRequestHelper', function($scope, assetsService, umbRequestHelper) {
+    .controller("Our.Iconic.Controller", ['$scope', 'assetsService', 'umbRequestHelper', function($scope, assetsService, umbRequestHelper) {
         var config = $scope.model.config;
 
         $scope.pckg;

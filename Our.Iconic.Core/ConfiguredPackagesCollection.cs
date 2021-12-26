@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
-using Koben.Iconic.Core.Models;
+using Our.Iconic.Core.Models;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using Umbraco.Cms.Core.Services;
 using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Core.Services;
 #endif
-namespace Koben.Iconic.Core
+namespace Our.Iconic.Core
 {
     public class ConfiguredPackagesCollection
     {

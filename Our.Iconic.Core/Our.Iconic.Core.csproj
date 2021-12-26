@@ -12,7 +12,7 @@ Core DLL Package Only.</Description>
 	  <Copyright>Copyright © Mario Lopez</Copyright>
 	  <Product>$(AssemblyName) - Core DLL</Product>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
-	  <PackageProjectUrl>https://github.com/KOBENDigital/Iconic</PackageProjectUrl>
+	  <PackageProjectUrl>https://github.com/Skartknet/Iconic</PackageProjectUrl>
 	  <PackageIcon>icon.png</PackageIcon>
 	  <PackageTags>umbraco plugin package icon picker editor backoffice</PackageTags>
 	  <NeutralLanguage>en-US</NeutralLanguage>

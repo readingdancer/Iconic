@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Koben.Iconic.Core.Models
+namespace Our.Iconic.Core.Models
 {
     public class Package
     {

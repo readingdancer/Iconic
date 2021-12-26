@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Koben.Iconic.Core.Helpers
+namespace Our.Iconic.Core.Helpers
 {
     public static class HtmlExtensions
     {

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Koben.Iconic.Core.Models;
+using Our.Iconic.Core.Models;
 using System;
 #if NET5_0_OR_GREATER
 using Microsoft.AspNetCore.Html;
@@ -13,7 +13,7 @@ using Umbraco.Core.PropertyEditors;
 using Umbraco.Core.Services;
 using System.Web;
 #endif
-namespace Koben.Iconic.Core.ValueConverters
+namespace Our.Iconic.Core.ValueConverters
 {
     public class IconicValueConverter : IPropertyValueConverter
     {
@@ -25,7 +25,7 @@ namespace Koben.Iconic.Core.ValueConverters
         }
 
         public bool IsConverter(IPublishedPropertyType propertyType)
-             => propertyType.EditorAlias.Equals("koben.iconic");
+             => propertyType.EditorAlias.Equals("our.iconic");
 
         public Type GetPropertyValueType(IPublishedPropertyType propertyType)
             => typeof(HtmlString);

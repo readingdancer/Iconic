@@ -41,7 +41,7 @@
 
 
     <ItemGroup>
-      <ProjectReference Include="..\Iconic\Koben.Iconic.csproj" />
+      <ProjectReference Include="..\Our.Iconic\Our.Iconic.csproj" />
     </ItemGroup>
 
     <PropertyGroup>
@@ -53,8 +53,7 @@
         <RazorCompileOnBuild>false</RazorCompileOnBuild>
         <RazorCompileOnPublish>false</RazorCompileOnPublish>
     </PropertyGroup>
-	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-		<Exec Command="xcopy $(SolutionDir)Iconic\App_Plugins\Iconic\*.* $(ProjectDir)App_Plugins\Iconic\ /S /E /Y" />
-	</Target>
+	
+    
 
 </Project>

@@ -1,4 +1,4 @@
-﻿angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", [
+﻿angular.module("umbraco").controller("Our.Iconic.Prevalues.Packages", [
     "$scope",
     "$http",
     "editorService",
