@@ -1,4 +1,4 @@
-name: Our.Umbraco.Iopnic - Release
+name: Our.Umbraco.Iconic - Release
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 env:
   SOLUTION: Iconic.sln
-  PLUGIN_PROJECT: Iconic\Our.Iconic.csproj
+  PLUGIN_PROJECT: Our.Iconic\Our.Iconic.csproj
   CORE_PROJECT: Our.Iconic.Core\Our.Iconic.Core.csproj
   OUTPUT_PATH: ${{ github.workspace }}\.output
   
