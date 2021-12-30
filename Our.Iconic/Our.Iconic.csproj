@@ -59,6 +59,5 @@ With Iconic you will be able to create a property editor that can use virtually 
       <ProjectReference Include="..\Our.Iconic.Core\Our.Iconic.Core.csproj" />
     </ItemGroup>
 
-	<Import Project="..\Our.Iconic\build\Our.Iconic.targets" />
 
 </Project>

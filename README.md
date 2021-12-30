@@ -21,10 +21,6 @@ You can run the following command from within Visual Studio:
 https://our.umbraco.com/packages/backoffice-extensions/iconic/
 
 
-### Manually
-Download the code and copy it into you App_Plugin folder.
-
-
 ## Configuration
 Once the plugin is installed is time to configure it to your needs.
 
