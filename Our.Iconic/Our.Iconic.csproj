@@ -6,7 +6,7 @@
 With Iconic you will be able to create a property editor that can use virtually any font package out there and not only that, you will be able to select your icon from more than one package on the same property.		</Description>
         <Product>$(AssemblyName)</Product>
         <PackageTags>umbraco plugin package icon picker editor backoffice</PackageTags>
-		<Version>3.1.1</Version>
+		<Version>3.1.2</Version>
 		<Authors>Mario Lopez</Authors>
 		<PackageProjectUrl>https://github.com/Skartknet/Iconic</PackageProjectUrl>
 		<PackageIcon>iconic_logo.png</PackageIcon>
@@ -42,6 +42,10 @@ With Iconic you will be able to create a property editor that can use virtually 
             <Pack>True</Pack>
             <PackagePath>buildTransitive</PackagePath>
         </None>
+		<None Include="build\**\*.*">
+			<Pack>True</Pack>
+			<PackagePath>build</PackagePath>
+		</None>
     </ItemGroup>
 
     <ItemGroup>
