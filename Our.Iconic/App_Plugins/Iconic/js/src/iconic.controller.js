@@ -48,7 +48,7 @@ angular.module("umbraco")
 
                 $scope.pckg = loadPackage(config.packages, $scope.model.value.packageId);
                 if ($scope.pckg) {
-                    assetsService.loadCss('~/' + $scope.pckg.cssfile);
+                    assetsService.loadCss('~/' + $scope.pckg.cssfile.replace(/wwwroot\//i, ''));
                     $scope.modelIsValid = true;
                 }
             } else {

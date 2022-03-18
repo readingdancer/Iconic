@@ -33,7 +33,6 @@ namespace Our.Iconic.Core.Helpers
             foreach (var item in htmlAttributesDict)
             {
                 attributesString.Append($"{ConvertToJs(item.Key)}=\"{item.Value}\"");
-
             }
 
             var modifiedTemplate = icon.ToString().Replace("{attributes}", attributesString.ToString())
