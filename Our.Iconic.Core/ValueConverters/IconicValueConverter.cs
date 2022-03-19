@@ -23,7 +23,6 @@ namespace Our.Iconic.Core.ValueConverters
         {
             _configuredPackages = new ConfiguredPackagesCollection(dataTypeService);
         }
-
         public bool IsConverter(IPublishedPropertyType propertyType)
              => propertyType.EditorAlias.Equals("our.iconic");
 
@@ -33,12 +32,11 @@ namespace Our.Iconic.Core.ValueConverters
         public PropertyCacheLevel GetPropertyCacheLevel(IPublishedPropertyType propertyType)
             => PropertyCacheLevel.Elements;
 
-
         public object ConvertSourceToIntermediate(IPublishedElement owner, IPublishedPropertyType propertyType, object source, bool preview)
         {
             if (source == null) return null;
 
-            SelectedIcon icon = null;
+            SelectedIcon icon;
             if (source is JObject jObject)
             {
                 icon = jObject.ToObject<SelectedIcon>();
@@ -54,21 +52,19 @@ namespace Our.Iconic.Core.ValueConverters
         public object ConvertIntermediateToObject(IPublishedElement owner, IPublishedPropertyType propertyType, PropertyCacheLevel referenceCacheLevel, object inter, bool preview)
         {
             if (inter == null) return new HtmlString(string.Empty);
+            string htmlString = string.Empty;
 
             var icon = (SelectedIcon)inter;
 
             var packages = _configuredPackages.GetConfiguratedPackages(propertyType);
 
-            var pckg = packages[icon.PackageId];
-
-            if (pckg == null) return string.Empty;
-
-            var display = pckg.FrontendTemplate.Replace("{icon}", icon.Icon);
-
-            return new HtmlString(display);
+            if (icon != null && packages.ContainsKey(icon.PackageId))
+            {
+                var pckg = packages[icon.PackageId];
+                htmlString = pckg?.FrontendTemplate.Replace("{icon}", icon.Icon) ?? string.Empty;
+            }
+            return new HtmlString(htmlString);
         }
-
-
 
         public bool? IsValue(object value, PropertyValueLevel level)
         {
@@ -81,7 +77,6 @@ namespace Our.Iconic.Core.ValueConverters
 
             return false;
         }
-
 
         public object ConvertIntermediateToXPath(IPublishedElement owner, IPublishedPropertyType propertyType, PropertyCacheLevel referenceCacheLevel, object inter, bool preview)
         {

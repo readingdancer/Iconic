@@ -35,7 +35,10 @@ namespace Our.Iconic.Core
 
                 var editorConfig = ((JArray)configurationJson["packages"]).ToObject<IEnumerable<Package>>();
 
-                _packagesCache.Add(uniqueKey, editorConfig.ToDictionary(p => p.Id));
+                if (!_packagesCache.ContainsKey(uniqueKey))
+                {
+                    _packagesCache.Add(uniqueKey, editorConfig.ToDictionary(p => p.Id));
+                }
             }
 
             return _packagesCache[uniqueKey];
