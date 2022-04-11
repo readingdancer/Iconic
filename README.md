@@ -70,11 +70,19 @@ Other packages like Material Icons use the glyph codes or even ligatures to disp
 So this file can be the same css file or another files used to extract the icons property. In the case of Material Icons for instance there is a file called <a href="iconfont/codepoints">codepoints</a> where you can extract the icons names from.
 
 ##### Material Icons
-If you're having issues configuring Material Icons, try this configuration:
+There a pre-configured option on Iconic that will give you the right regex. You need to use the following files:
 
 **Css File**: https://fonts.googleapis.com/icon?family=Material+Icons
 
 **Rules file**: https://github.com/mattecapu/md-icons-codepoints
+
+**11/4/2022 UPDATE**
+The link to the codepoints file now returns a file with a JSON object.
+In order to make it work, you need to download the file and remove the first and last `{` `}` so the Icon service that loads the file doesn't think it's an actual obj and it returns it as plain text.
+The regex for the Selector input needs to be **"(\w+)":\s"[^"]"**
+
+Yes, this is a pretty dirty trick, but given that no other package for the moment have this issue we won't make Iconic compatible with JSON files.
+
 
 ##### Font Awesome 5
 The version 5 is a bit tricky to configure. There is a <a href="https://www.edg3.co.uk/blog/how-to-add-font-awesome-v5-icons-using-iconic-in-umbraco/">great post</a> about it, thanks to Christopher Robinson.
