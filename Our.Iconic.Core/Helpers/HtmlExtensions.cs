@@ -1,5 +1,6 @@
 ﻿#if NET5_0_OR_GREATER
 using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #else
 using System.Web;
@@ -21,7 +22,7 @@ namespace Our.Iconic.Core.Helpers
         /// <param name="extraClasses">Replaces an {classes} placeholder in the icon template.</param>
         /// <returns></returns>
 #if NET5_0_OR_GREATER
-        public static IHtmlContent RenderIcon(this HtmlHelper helper, IHtmlContent icon, object htmlAttributes, params string[] extraClasses)
+        public static IHtmlContent RenderIcon(this IHtmlHelper helper, IHtmlContent icon, object htmlAttributes, params string[] extraClasses)
 #else
         public static IHtmlString RenderIcon(this HtmlHelper helper, IHtmlString icon, object htmlAttributes, params string[] extraClasses)
 #endif
@@ -32,7 +33,7 @@ namespace Our.Iconic.Core.Helpers
 
             foreach (var item in htmlAttributesDict)
             {
-                attributesString.Append($"{ConvertToJs(item.Key)}=\"{item.Value}\"");
+                attributesString.Append($"{ConvertToKebabCase(item.Key)}=\"{item.Value}\"");
             }
 
             var modifiedTemplate = icon.ToString().Replace("{attributes}", attributesString.ToString())
@@ -42,7 +43,12 @@ namespace Our.Iconic.Core.Helpers
             return new HtmlString(modifiedTemplate);
         }
 
-        private static string ConvertToJs(string s)
+        /// <summary>
+        /// Converts a CamelCase string to kebab-case.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        private static string ConvertToKebabCase(string s)
         {
             string pattern = "([A-Z])";
             return Regex.Replace(s, pattern, "-$1").ToLower();
