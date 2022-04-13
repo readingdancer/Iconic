@@ -160,4 +160,4 @@ If you try to use Glyphicons as part of the Bootstrap package, you will realise 
 Currently if you are using font awesome pro and stacked content, icons will not render correctly in stacked content preview
 
 
-Handmade by Mario Lopez - 2018 @OurDigital
+Handmade by Mario Lopez - 2022 @skartknet
