@@ -13,10 +13,9 @@
 
             if (pckg == null) return;
 
-            $scope.loading = true;
+            $scope.loading = true;            
 
-
-            assetsService.loadCss('~/' + pckg.cssfile).then(function() {
+            assetsService.loadCss('~/' + pckg.cssfile.replace(/wwwroot\//i, '')).then(function() {
                 $scope.loading = false;
                 $scope.pckgselected = pckg;
             });

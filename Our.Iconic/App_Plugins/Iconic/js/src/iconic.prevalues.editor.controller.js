@@ -15,7 +15,7 @@
                     $scope.model.package,
                     function(extractedStyles) {
                         $scope.previewIcon = extractedStyles[0];
-                        assetsService.loadCss('~/' + $scope.model.package.cssfile.replace("wwwroot/", ""));
+                        assetsService.loadCss('~/' + $scope.pckg.cssfile.replace(/wwwroot\//i, ''));
                         $scope.previewButtonState = "success";
                     },
                     function() {
