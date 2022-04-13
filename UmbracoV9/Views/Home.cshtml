@@ -1,14 +1,23 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
 @{
-	Layout = null;
+    Layout = null;
 }
 <html>
-	<head>
-		<link href="~/css/simple-line-icons.css" type="text/css" />
-	</head>
-	<body>
-		@Html.Raw(Model.Iconic)
-	</body>
+    <head>
+        <link rel="stylesheet" href="~/css/simple-line-icons.css" type="text/css" />
+        <link rel="stylesheet" href="~/css/material-icons.css" type="text/css" />
+    </head>
+<body>
+    @if (string.IsNullOrEmpty(Model.Iconic.ToString()))
+    {
+        <p>no icon!</p>
+    }
+    else
+    {
+        <p> icon!</p>
+        @Html.Raw(Model.Iconic)
+    }
+</body>
 </html>
