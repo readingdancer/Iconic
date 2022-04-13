@@ -159,52 +159,5 @@ If you try to use Glyphicons as part of the Bootstrap package, you will realise 
 ### Font Awesome Pro
 Currently if you are using font awesome pro and stacked content, icons will not render correctly in stacked content preview
 
-# Changelog
-- 3.1.1
-    - Multi-targeted build.
-    - Split packages for Web and Core.
-    - Improved Prevalues editor form validation.
-    - Modified some configuration labels to make it easier to understand.
-- 3.1.0
-    - Added icon preview to package configuration.
-    - #30 fixed virtual path issues
-- 3.0.0
-    - Compatible with Umbraco 9
-- 2.3.1 
-    - Compatible with Umbraco 8.7
-    - Support for virtual paths.
-- 1.6
-    - Unable to cast object of type 'Newtonsoft.Json.Linq.JObject' to type 'System.String'. FIXED
-    - Added Pre-Configurations for Font Awesome 5.
-- 1.5
-    - Added support for extra attributes and classes
-- 1.4
-	- Added a feature to override Template to be able to use a different one in backoffice.
-	- Fixed some missing languages labels.
-	- Template of icons already in use is updated if it's modified on the package settings.
-
-- 1.3
-	- Support globalization. en and es included.
-	- Supports IE11
-	- Added Simple Line Icons preconfiguration
-	- Returns empty string instead empty object if not configured
-	- Little fixes
-	
-- 1.2.3
-    - #7 Fixed compatibility with Nested Content.
-
-- 1.2.1      
-    - #4. When re-opening the Icon picker, the selected Icon should be highlighted
-    - #5. If only one library is selected, the dropdown should default to this / default to first library
-    - #6. Shows icon name on editor.
-    
-- 1.2
-    - Added preconfig for Material Icons.
-    - Existing packages can be edited.
-    - Icon source file separate from css file.
-    - Forms using better Angular validation.
-
-
----
 
 Handmade by Mario Lopez - 2018 @OurDigital
