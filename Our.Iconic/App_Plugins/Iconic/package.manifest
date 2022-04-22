@@ -32,7 +32,7 @@
     "~/App_Plugins/Iconic/js/src/iconic.prevalues.editor.controller.js"
   ],
   "css": [
-    "~/App_Plugins/Iconic/styles/iconic.min.css"
+    "~/App_Plugins/Iconic/styles/iconic.css"
   ]
 
 
