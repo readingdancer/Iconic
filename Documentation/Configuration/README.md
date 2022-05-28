@@ -1,8 +1,20 @@
 # Iconic Configuration
 
 
+## Contents
 
-## Create a new DataType
+[Create a new DataType](#create)
+
+[Iconic Configuration Basics](#configbasics)
+
+Specific Icon Sets Configurations:
+-  [Font Awesome 4](/FontAwesome4)
+-  [Font Awesome 5](/FontAwesome5)
+-  [Glyphicons](/Glyphicons)
+-  [Material Icons](/MaterialIcons)
+
+
+## <a name="create"></a> Create a new DataType
 You have to create a new datatype from the Iconic editor:
 1. Go to the Developer section.
 2. Right click on *DataTypes*, click *Create* and click on *New data type*.
@@ -12,7 +24,7 @@ You have to create a new datatype from the Iconic editor:
 
 At this point I would recommend you to save your datatype as the configuration can take a bit of trial an error as you will need to deal with some regex and urls.
 
-## Iconic Configuration Basics
+## <a name="configbasics"></a> Iconic Configuration Basics
 On the Packages Configuration property, click the Add button. This will display a new form that you will use to configure your new font package.
 1. Enter the name for your package
 2. Create your selector. This will use regex to extract your icons css from the font package.
@@ -30,8 +42,8 @@ On the Packages Configuration property, click the Add button. This will display 
 ### Template Placeholders
 You can use the following placeholders to customize the way your icon is rendered in the frontend:
 - *\{icon\}* : Here is where the specific icon rule will be included. For instance, for a Font Awesome icon you would do ```<i class="fa {icon}"></i>```
-- *\{classes\}*: You can add extra classes to your icon from your views. See [Displaying the Icon](../Usage/readme.md#displaying)
-- *\{attributes}*: You can use this placeholder to add extra attributes to your icon from your views. This can be useful to add data attributes for instance among other things. See [Displaying the Icon](../Usage/readme.md#displaying)
+- *\{classes\}*: You can add extra classes to your icon from your views. See [Displaying the Icon](../Usage)
+- *\{attributes}*: You can use this placeholder to add extra attributes to your icon from your views. This can be useful to add data attributes for instance among other things. See [Displaying the Icon](../Usage)
 
 ### Icons source file
 This file will be used to extract the specific configuration for each different icon.
@@ -65,3 +77,6 @@ Once you have added your configuration, this will be added to the configurations
 
 You will get a read-only list of your values. To edit them just click on the Edit Package option.
 
+## <a name="iconsets"></a> Specific Icon Sets Configurations
+
+Check out the 
