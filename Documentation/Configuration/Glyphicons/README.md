@@ -15,7 +15,7 @@ If you try to use Glyphicons as part of the Bootstrap package, you will realise 
 [Bootstrap Glyphicons Icons Reference](https://getbootstrap.com/docs/3.3/components/)
 
 1. Obtain the [Icon files](https://getbootstrap.com/docs/3.3/getting-started/).  
-2. When [creating the DataType](../readme.md), start with the **Pre-configured option** "Glyphicons".
+2. When [creating the DataType](../), start with the **Pre-configured option** "Glyphicons".
 3. Set the **CSS file** to *[TBA-Need info]* .
 4. Set the **Rules source file** to *[TBA-Need info]* .
 
