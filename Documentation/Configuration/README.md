@@ -8,10 +8,10 @@
 [Iconic Configuration Basics](#configbasics)
 
 Specific Icon Sets Configurations:
--  [Font Awesome 4](/FontAwesome4)
--  [Font Awesome 5](/FontAwesome5)
--  [Glyphicons](/Glyphicons)
--  [Material Icons](/MaterialIcons)
+-  [Font Awesome 4](FontAwesome4)
+-  [Font Awesome 5](FontAwesome5)
+-  [Glyphicons](Glyphicons)
+-  [Material Icons](MaterialIcons)
 
 
 ## <a name="create"></a> Create a new DataType
