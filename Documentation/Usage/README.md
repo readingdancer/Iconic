@@ -2,7 +2,9 @@
 
 
 ## Contents
+
 [Using the DataType](#using)
+
 [Displaying the icon](#displaying)
 
 ## <a name="using"></a> Using the DataType

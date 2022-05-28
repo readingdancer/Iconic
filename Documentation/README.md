@@ -4,7 +4,9 @@
 ## Contents
 
 [Configuring the Datatype](Configuration/readme.md)
+
 [Datatype Usage and Rendering Icons](Usage/readme.md)
+
 [Tips & Tricks](Tips/readme.md)
 
 ## How to Contribute
