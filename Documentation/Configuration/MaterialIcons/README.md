@@ -1,6 +1,6 @@
 # Iconic Configuration: Material Icons
 
-*[If you have successfully configured Glyphicons, please consider contributing to this doc!]*
+*[If you have successfully configured Material Icons, please consider contributing to this doc!]*
 
 ## Icons source file
 
