@@ -9,7 +9,7 @@ Font Awesome 5 doesn't include a CSS file which can be used as-is for the **Rule
 
 1. Obtain the [Icon files](https://fontawesome.com/v5/docs/web/) from the font awesome website.
 2. Download the [v5.15.4 rules files](FA.5.15.4/) and place into a directory in your website.
-2. When [creating the DataType](../readme.md), add separate configurations for each style group you want available:
+2. When [creating the DataType](../), add separate configurations for each style group you want available:
 
 ![DataType with 3 styles configured](Iconic-Picker-DataType-FA5.png)
 
