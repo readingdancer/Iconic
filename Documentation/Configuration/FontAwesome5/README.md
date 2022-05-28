@@ -72,3 +72,4 @@ to
 In 2018 Christopher Robinson first cracked the Font Awesome 5 challenge and wrote a [great blog post](https://www.edg3.co.uk/blog/how-to-add-font-awesome-v5-icons-using-iconic-in-umbraco) about it, and provided a set of [v5.3.0 rules files](https://github.com/christopherrobinson/Font-Awesome-Icons/tree/master/css).
 
 
+

@@ -77,6 +77,9 @@ Once you have added your configuration, this will be added to the configurations
 
 You will get a read-only list of your values. To edit them just click on the Edit Package option.
 
-## <a name="iconsets"></a> Specific Icon Sets Configurations
+#### Icon Preview (V3)
+If everything is configured properly, and Iconic can extract a list of your icons, you will be able to preview your configured Template. Click the Reload Preview button and you should get a preview of the first icon found on your source file.
 
-Check out the 
+**Cool tip:** you can preview changes to your template in real time (no need to click *Reload preview*) :boom: 
+
+![Icon preview](icon-preview.png)

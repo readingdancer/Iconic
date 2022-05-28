@@ -17,3 +17,9 @@ If you're having issues configuring Material Icons, try this configuration:
 
 **Rules file**: https://raw.githubusercontent.com/google/material-design-icons/master/iconfont/codepoints
 
+**11/4/2022 UPDATE**
+The link to the codepoints file now returns a file with a JSON object.
+In order to make it work, you need to download the file and remove the first and last `{` `}` so the Icon service that loads the file doesn't think it's an actual obj and it returns it as plain text.
+The regex for the Selector input needs to be **"(\w+)":\s"[^"]"**
+
+Yes, this is a pretty dirty trick, but given that no other package for the moment have this issue we won't make Iconic compatible with JSON files.
