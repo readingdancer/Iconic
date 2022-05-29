@@ -7,6 +7,8 @@
 
 [Iconic Configuration Basics](#configbasics)
 
+[Pre-configured packages](#preconfigured)
+
 Specific Icon Sets Configurations:
 -  [Font Awesome 4](FontAwesome4)
 -  [Font Awesome 5](FontAwesome5)
@@ -60,16 +62,6 @@ Other packages like Material Icons use the glyph codes or even ligatures to disp
 So this file can be the same css file or another files use to extract the icons property. In the case of Material Icons for instance there is a file called <a href="https://github.com/google/material-design-icons/blob/master/iconfont/codepoints">codepoints</a> where you can extract the icons names from.
 
 
-### Pre configured packages
-To make your life easier I have included some help to configure your packages in the form of pre-configured packages. If you select *Pre-Configured* when creating your package, you will have access to a list of pre-configured ones. You will still have to enter your css file path.
-
-![Pre-configured package](addPreConfig.png)
-
-
-You can add as many packages you like. You can also arrange their order or remove those you don't want to use anymore.
-
-*Note*: the regex included in the preconfigs are valid for the **minimised versions** of them.
-
 ### Reviewing your configuration
 Once you have added your configuration, this will be added to the configurations list. You add add as many as you want. To review the details of your configured package just click on them:
 
@@ -83,3 +75,13 @@ If everything is configured properly, and Iconic can extract a list of your icon
 **Cool tip:** you can preview changes to your template in real time (no need to click *Reload preview*) :boom: 
 
 ![Icon preview](icon-preview.png)
+
+## <a name="preconfigured"></a>Pre configured packages
+To make your life easier we have included some help to configure your packages in the form of pre-configured packages. If you select *Pre-Configured* when creating your package, you will have access to a list of pre-configured ones. You will still have to enter your css file path.
+
+![Pre-configured package](addPreConfig.png)
+
+
+You can add as many packages you like. You can also arrange their order or remove those you don't want to use anymore.
+
+*Note*: the regex included in the preconfigs are valid for the **minimised versions** of them.

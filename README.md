@@ -24,7 +24,6 @@ https://our.umbraco.com/packages/backoffice-extensions/iconic/
 ## Configuration
 Once the plugin is installed is time to configure it to your needs.
 
-## Documentation
 To learn how to use and configure this plugin, [read our documentation](Documentation).
 
 
