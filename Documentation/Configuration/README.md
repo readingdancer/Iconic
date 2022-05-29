@@ -33,13 +33,14 @@ On the Packages Configuration property, click the Add button. This will display 
 3. Source file path. This file will contains the specific configuration for each icon.
    To extract the rules the previous regex rule will be used. This file will normally be a CSS file where the rules are contained. You can use absolute or relative paths. See below.
 4. Path to your font package css file.
-    * You can use absolute paths: http:\\www.yoursite.com\styles\fonts\my-font-package.css. This allows you to use external files, like the ones from a CDN.
-    * Or relative to the root: \styles\fonts\my-font-package.css
+    * You can use absolute paths: `http:\\\www.yoursite.com\styles\fonts\my-font-package.css`. This allows you to use external files, like the ones from a CDN.
+    * Or relative to the root: `\styles\fonts\my-font-package.css`
     This file will be loaded in the head of your backoffice and will affect the whole view so be careful of what you load there. Check the Known Issues section for some more info.
 
 5. Template. This will be the template your icon will be based on. You can use the value ```{icon}``` as placeholder for your icon specific rule. For instance, for Font Awesome you should enter something like: `<i class="fa {icon}"></i>`
 6. Override Backoffice template. Optional. You can override the Template value to use differente templates for frontend and backoffice.
 6. Click *Add Package* to add the configuration to your packages listing. Before adding the package, Iconic will extract the css rules from the file using the regex selector. Some checking is ran that will let you know if something went wrong with your configuration.
+
 
 ### Template Placeholders
 You can use the following placeholders to customize the way your icon is rendered in the frontend:

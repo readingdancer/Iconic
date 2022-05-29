@@ -24,7 +24,7 @@ Iconic comes with a value converter that will return a HtmlString containing the
 @Html.Raw(Model.Content.MyIcon)
 ```
 
-Remember to wrap the icon in Html.Raw so Razor displays the returned html properly.
+Remember to wrap the icon in `Html.Raw` so Razor displays the returned html properly.
 
 
 There is a second way of rendering your icon that allow you to add extra classes and attributes from your views. Remember that you need to add the placeholders on the right place of your template when you configure Iconic.

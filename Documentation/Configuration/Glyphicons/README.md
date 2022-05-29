@@ -10,7 +10,7 @@ If you try to use Glyphicons as part of the Bootstrap package, you will realise 
 
 ![CSS files](cssfiles.png)
 
-Your Bootstrap.css and .min.css will contain your Glyphicons classes. You can rename this to something else to differentiate from the actual Bootstrap classes if you're using them.
+Your Bootstrap.css and .min.css will contain your Glyphicons classes. You can rename this to something else to differentiate them from the actual Bootstrap classes if you're using them.
 
 ## Bootstrap Glyphicons
 
@@ -18,8 +18,8 @@ Your Bootstrap.css and .min.css will contain your Glyphicons classes. You can re
 
 1. Obtain the [Icon files](https://getbootstrap.com/docs/3.3/getting-started/).  
 2. When [creating the DataType](../), start with the **Pre-configured option** "Glyphicons".
-3. Set the **CSS file** to *[TBA-Need info]* .
-4. Set the **Rules source file** to *[TBA-Need info]* .
+3. Set the **CSS file** to "glyphicons.css" .
+4. Set the **Rules source file** to *glyph* .
 
 
 
