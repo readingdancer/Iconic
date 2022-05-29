@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFrameworks>net5.0;net472</TargetFrameworks>
+        <TargetFrameworks>net5.0;net472;.NET6.0</TargetFrameworks>
         <ContentTargetFolders>.</ContentTargetFolders>
         <Description>Highly configurable icon picker for Umbraco.
 With Iconic you will be able to create a property editor that can use virtually any font package out there and not only that, you will be able to select your icon from more than one package on the same property.		</Description>
         <Product>$(AssemblyName)</Product>
         <PackageTags>umbraco plugin package icon picker editor backoffice</PackageTags>
-		<Version>3.1.6</Version>
+		<Version>3.2-rc4</Version>
 		<Authors>Mario Lopez</Authors>
 		<PackageProjectUrl>https://github.com/Skartknet/Iconic</PackageProjectUrl>
 		<PackageIcon>iconic_logo.png</PackageIcon>
@@ -22,6 +22,14 @@ With Iconic you will be able to create a property editor that can use virtually 
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0|AnyCPU'">
 		<PlatformTarget>AnyCPU</PlatformTarget>
 	</PropertyGroup>
 

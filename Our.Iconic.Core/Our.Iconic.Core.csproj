@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net5.0;net472</TargetFrameworks>
+    <TargetFrameworks>net5.0;net472;net6.0</TargetFrameworks>
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 
-	  <Version>3.1.2</Version>
+	  <Version>3.2-rc4</Version>
 	  <Authors>Mario Lopez</Authors>
 	  <Description>Highly configurable icon picker for Umbraco. 
 With Iconic you will be able to create a property editor that can use virtually any font package out there and not only that, you will be able to select your icon from more than one package on the same property.
@@ -40,11 +40,19 @@ Core DLL Package Only.</Description>
 		<PlatformTarget>AnyCPU</PlatformTarget>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
 	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
 		<Reference Include="System.Web" />
 		<PackageReference Include="UmbracoCms.Core" Version="8.15.0" />
 		<PackageReference Include="UmbracoCms.Web" Version="8.15.0" />
-
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
@@ -52,6 +60,13 @@ Core DLL Package Only.</Description>
 			<Version>9.0.1</Version>
 		</PackageReference>
 	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">		
+		<PackageReference Include="Umbraco.Cms.Web.Common">
+			<Version>10.0.0-rc4</Version>
+		</PackageReference>
+	</ItemGroup>
+	
 
 	<ItemGroup>
 		<None Include="..\iconic_logo.png">

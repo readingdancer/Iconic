@@ -1,0 +1,23 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
+@{
+    Layout = null;
+}
+<html>
+    <head>
+        <link rel="stylesheet" href="~/css/simple-line-icons.css" type="text/css" />
+        <link rel="stylesheet" href="~/css/material-icons.css" type="text/css" />
+    </head>
+<body>
+    @if (string.IsNullOrEmpty(Model.Icon.ToString()))
+    {
+        <p>no icon!</p>
+    }
+    else
+    {
+        <p> icon!</p>
+        @Html.Raw(Model.Icon)
+    }
+</body>
+</html>
