@@ -1,5 +1,13 @@
-﻿using System;
-#if NET5_0_OR_GREATER
+﻿#if NET6_0_OR_GREATER
+using Microsoft.Extensions.Logging;
+using Umbraco.Cms.Core;
+using Umbraco.Cms.Core.Composing;
+using Umbraco.Cms.Core.Migrations;
+using Umbraco.Cms.Core.Services;
+using Umbraco.Cms.Infrastructure.Migrations;
+using Umbraco.Cms.Infrastructure.Migrations.Upgrade;
+using Umbraco.Cms.Infrastructure.Scoping;
+#elif NET5_0
 using Microsoft.Extensions.Logging;
 using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Composing;
@@ -27,46 +35,46 @@ namespace Our.Iconic.Core.Migrations
 
 #if NET5_0_OR_GREATER
 
-	public class IconicMigrations : IComponent
-	{
-		private readonly IScopeProvider _scopeProvider;
-		private readonly IKeyValueService _keyValueService;
-		private readonly IRuntimeState _runtimeState;
+    public class IconicMigrations : IComponent
+    {
+        private readonly IScopeProvider _scopeProvider;
+        private readonly IKeyValueService _keyValueService;
+        private readonly IRuntimeState _runtimeState;
 
 
-		private readonly IMigrationPlanExecutor _migrationPlanExecutor;
+        private readonly IMigrationPlanExecutor _migrationPlanExecutor;
 
-		public IconicMigrations(
-			IScopeProvider scopeProvider,
-			IMigrationPlanExecutor migrationPlanExecutor,
-			IKeyValueService keyValueService,
-			IRuntimeState runtimeState)
-		{
-			_scopeProvider = scopeProvider;
-			_migrationPlanExecutor = migrationPlanExecutor;
-			_keyValueService = keyValueService;
-			_runtimeState = runtimeState;
-		}
-		public void Initialize()
-		{
-			if (_runtimeState.Level < RuntimeLevel.Run)
-			{
-				return;
-			}
+        public IconicMigrations(
+            IScopeProvider scopeProvider,
+            IMigrationPlanExecutor migrationPlanExecutor,
+            IKeyValueService keyValueService,
+            IRuntimeState runtimeState)
+        {
+            _scopeProvider = scopeProvider;
+            _migrationPlanExecutor = migrationPlanExecutor;
+            _keyValueService = keyValueService;
+            _runtimeState = runtimeState;
+        }
+        public void Initialize()
+        {
+            if (_runtimeState.Level < RuntimeLevel.Run)
+            {
+                return;
+            }
 
-			var migrationPlan = new MigrationPlan("Iconic");
+            var migrationPlan = new MigrationPlan("Iconic");
 
-			migrationPlan.From(string.Empty)
-						.To<ChangePackageId>("our-packageIdChange");
+            migrationPlan.From(string.Empty)
+                        .To<ChangePackageId>("our-packageIdChange");
 
-			var upgrader = new Upgrader(migrationPlan);
-			upgrader.Execute(_migrationPlanExecutor, _scopeProvider, _keyValueService);
+            var upgrader = new Upgrader(migrationPlan);
+            upgrader.Execute(_migrationPlanExecutor, _scopeProvider, _keyValueService);
         }
 
-		public void Terminate()
-		{
-		}
-	}
+        public void Terminate()
+        {
+        }
+    }
 
 #else
 
@@ -117,9 +125,9 @@ namespace Our.Iconic.Core.Migrations
         }
 
 #if NET5_0_OR_GREATER
-		protected override void Migrate()
-		{
-			Logger.LogDebug("Running migration {MigrationStep}", "ChangePackageId");
+        protected override void Migrate()
+        {
+            Logger.LogDebug("Running migration {MigrationStep}", "ChangePackageId");
 
 #else
         public override void Migrate()

@@ -6,7 +6,7 @@ With Iconic you will be able to create a property editor that can use virtually 
 
 ## Installation
 
-This repository includes multi-targeted version 3 for Umbraco 8 & 9.
+This repository includes multi-targeted version 3 for Umbraco 8, 9 & 10.
 
 Previous versions of this package are on https://github.com/KOBENDigital/Iconic
 
@@ -15,4 +15,4 @@ https://our.umbraco.com/packages/backoffice-extensions/iconic/
 
 ---
 
-Handmade by Mario Lopez - 2021
+Handmade by Mario Lopez - 2022
