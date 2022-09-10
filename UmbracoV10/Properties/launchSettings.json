@@ -4,8 +4,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:44847",
-      "sslPort": 44367
+      "applicationUrl": "http://localhost:12144",
+      "sslPort": 44317
     }
   },
   "profiles": {
@@ -18,22 +18,12 @@
     },
     "Umbraco.Web.UI": {
       "commandName": "Project",
+      "dotnetRunMessages": true,
       "launchBrowser": true,
+      "applicationUrl": "https://localhost:44317;http://localhost:12144",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "https://localhost:44367;http://localhost:44847",
-      "dotnetRunMessages": true
-    },
-    "WSL": {
-      "commandName": "WSL2",
-      "launchBrowser": true,
-      "launchUrl": "https://localhost:44367",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_URLS": "https://localhost:44367;http://localhost:44847"
-      },
-      "distributionName": ""
+      }      
     }
   }
 }

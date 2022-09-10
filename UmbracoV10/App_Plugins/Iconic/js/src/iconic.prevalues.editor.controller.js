@@ -14,8 +14,8 @@
                 extractStyles(
                     $scope.model.package,
                     function(extractedStyles) {
-                        $scope.previewIcon = extractedStyles[0];
-                        assetsService.loadCss('~/' + $scope.pckg.cssfile.replace(/wwwroot\//i, ''));
+                        $scope.previewIcon = extractedStyles[0];                        
+                        assetsService.loadCss(umbRequestHelper.convertVirtualToAbsolutePath('~/' + $scope.model.package.cssfile.replace(/wwwroot\//i, '')));
                         $scope.previewButtonState = "success";
                     },
                     function() {
@@ -163,7 +163,14 @@
             $http.get(path).then(
                 function(response) {
                     item.extractedStyles = [];
-                    var pattern = new RegExp(item.selector, "g");
+
+                    try {
+                        var pattern = new RegExp(item.selector, "g");
+                    } catch (e) {
+                        $scope.error = e.message;
+                        errorCallback();
+                        return;
+                    }
 
                     var match = pattern.exec(response.data);
                     while (match !== null) {

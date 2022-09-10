@@ -1,53 +1,33 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 
-    <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
-    </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Umbraco.Cms" Version="10.2.0" />
+  </ItemGroup>
 
-    <ItemGroup>
-      <Content Include="umbraco\Data\TEMP\Install\install_8edb18e7c720453bb5572ed5c7e8a511.txt" />
-      <Content Include="umbraco\Logs\UmbracoTraceLog.DESKTOP-TQ1FPI5.20220530.json" />
-    </ItemGroup>
+  <ItemGroup>
+    <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
+    <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
+    <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2.0.9" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
+  </ItemGroup>
 
-    <ItemGroup>
-      <None Include="umbraco\Data\TEMP\MainDom_e0c62e3e55b9ad49fa5ad8a022b44d2ea57de8ee.lock" />
-    </ItemGroup>
+  <PropertyGroup>
+    <!-- Razor files are needed for the backoffice to work correctly -->
+    <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+  </PropertyGroup>
 
-    <!-- Force windows to use ICU. Otherwise Windows 10 2019H1+ will do it, but older windows 10 and most if not all winodws servers will run NLS -->
-    <ItemGroup>
-      <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
-      <PackageReference Include="Umbraco.Cms" Version="10.0.0-rc4" />
+  <PropertyGroup>
+    <!-- Remove RazorCompileOnBuild and RazorCompileOnPublish when not using ModelsMode InMemoryAuto -->
+    <RazorCompileOnBuild>false</RazorCompileOnBuild>
+    <RazorCompileOnPublish>false</RazorCompileOnPublish>
+  </PropertyGroup>
 
-      <RuntimeHostConfigurationOption Condition="$(RuntimeIdentifier.StartsWith('linux')) Or $(RuntimeIdentifier.StartsWith('win')) Or ('$(RuntimeIdentifier)' == '' And !$([MSBuild]::IsOSPlatform('osx')))" Include="System.Globalization.AppLocalIcu" Value="68.2.0.9" />
-    </ItemGroup>
-
-    <Import Project="..\Our.Iconic\build\Our.Iconic.targets" />
-
-    <ItemGroup>
-        <ProjectReference Include="..\Our.Iconic\Our.Iconic.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="umbraco\Data\TEMP\FileUploads\" />
-      <Folder Include="umbraco\Data\TEMP\InMemoryAuto\" />
-      <Folder Include="wwwroot\media\" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Content Update="Views\Home.cshtml">
-        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      </Content>
-    </ItemGroup>
-
-    <PropertyGroup>
-        <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
-    </PropertyGroup>
-
-    <!-- Set this to true if ModelsBuilder mode is not InMemoryAuto-->
-    <PropertyGroup>
-        <RazorCompileOnBuild>false</RazorCompileOnBuild>
-        <RazorCompileOnPublish>false</RazorCompileOnPublish>
-    </PropertyGroup>
-
+  <Import Project="..\Our.Iconic\build\Our.Iconic.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Our.Iconic\Our.Iconic.csproj" />
+  </ItemGroup>
 </Project>
