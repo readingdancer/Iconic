@@ -15,10 +15,14 @@
 
             $scope.loading = true;            
 
-            assetsService.loadCss('~/' + pckg.cssfile.replace(/wwwroot\//i, '')).then(function() {
-                $scope.loading = false;
-                $scope.pckgselected = pckg;
-            });
+            assetsService.loadCss(umbRequestHelper.convertVirtualToAbsolutePath('~/' + pckg.cssfile.replace(/wwwroot\//i, '')))
+                .then(function () {
+                    $scope.loading = false;
+                    $scope.pckgselected = pckg;
+                })
+                .catch(function (err) {
+                    throw err;
+                });
 
         }
 
