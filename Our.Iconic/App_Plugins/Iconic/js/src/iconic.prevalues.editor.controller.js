@@ -14,8 +14,12 @@
                 extractStyles(
                     $scope.model.package,
                     function(extractedStyles) {
-                        $scope.previewIcon = extractedStyles[0];                        
-                        assetsService.loadCss(umbRequestHelper.convertVirtualToAbsolutePath('~/' + $scope.model.package.cssfile.replace(/wwwroot\//i, '')));
+                        $scope.previewIcon = extractedStyles[0];     
+
+                        var cssUri = isExternalUri($scope.model.package.cssfile) ? $scope.model.package.cssfile :
+                            umbRequestHelper.convertVirtualToAbsolutePath('~/' + $scope.model.package.cssfile.replace(/wwwroot\//i, ''));
+                                
+                        assetsService.loadCss(cssUri);
                         $scope.previewButtonState = "success";
                     },
                     function() {
@@ -94,7 +98,7 @@
         };
 
         function loadPreconfigs() {
-            $http.get(umbRequestHelper.convertVirtualToAbsolutePath("~/App_Plugins/Iconic/preconfigs.json")).then(
+            $http.get().then(
                 function(response) {
                     $scope.preconfig = response.data.preconfigs;
                 },
@@ -102,6 +106,10 @@
                     displayError("iconicErrors_loading");
                 }
             );
+        }
+
+        function isExternalUri(uri) {
+            return uri.indexOf("://") > -1;
         }
 
         function displayError(alias) {
@@ -158,7 +166,9 @@
             if (!item.sourcefile) item.sourcefile = item.cssfile;
 
 
-            var path = umbRequestHelper.convertVirtualToAbsolutePath("~/" + item.sourcefile.replace("wwwroot/", ""));
+            var path = isExternalUri(item.sourcefile) ?
+                item.sourcefile :
+                umbRequestHelper.convertVirtualToAbsolutePath("~/" + item.sourcefile.replace("wwwroot/", ""));
 
             $http.get(path).then(
                 function(response) {
