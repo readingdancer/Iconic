@@ -98,7 +98,7 @@
         };
 
         function loadPreconfigs() {
-            $http.get().then(
+            $http.get(umbRequestHelper.convertVirtualToAbsolutePath("~/App_Plugins/Iconic/preconfigs.json")).then(
                 function(response) {
                     $scope.preconfig = response.data.preconfigs;
                 },

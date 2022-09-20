@@ -34,7 +34,6 @@
 
                             <input class="umb-property-editor" name="editTemplate" type="text" ng-model="model.package.template" val-highlight="{{ packageForm.editTemplate.$invalid && packageForm.editTemplate.$dirty}}" required />
 
-
                             <span ng-messages="packageForm.editTemplate.$error" show-validation-on-submit>
                                 <span class="help-inline" ng-message="required"><localize key="iconicValidation_name">Please enter a template</localize></span>
                             </span>
@@ -52,7 +51,8 @@
                         <umb-control-group label="@iconicConfig_cssFile" description="@iconicConfig_cssFileDescription" required="true">
                             <div class="flex">
                                 <label class="control-label">File Path: </label>
-                                <input type="text" class="umb-property-editor" name="editCssFile" required ng-model="model.package.cssfile" />
+                                <input type="text" class="umb-property-editor" name="editCssFile" required ng-model="model.package.cssfile"
+                                       placeholder="Enter partial or absolute URL, or select from the filesystem."/>
 
                                 <umb-button action="openCssFilePicker(model.package.cssfile)"
                                             label="Select"
@@ -83,7 +83,8 @@
 
                                 <div class="flex">
                                     <label class="control-label">File Path: </label>
-                                    <input type="text" class="umb-property-editor" name="editSourceFile" required ng-model="model.package.sourcefile" />
+                                    <input type="text" class="umb-property-editor" name="editSourceFile" required ng-model="model.package.sourcefile"
+                                           placeholder="Enter partial or absolute URL, or select from the filesystem."/>
 
                                     <umb-button action="openRulesFilePicker()"
                                                 label="Select"

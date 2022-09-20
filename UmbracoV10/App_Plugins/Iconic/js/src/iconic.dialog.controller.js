@@ -15,10 +15,17 @@
 
             $scope.loading = true;            
 
-            assetsService.loadCss('~/' + pckg.cssfile.replace(/wwwroot\//i, '')).then(function() {
-                $scope.loading = false;
-                $scope.pckgselected = pckg;
-            });
+            var cssUri = isExternalUri(pckg.cssfile) ? pckg.cssfile :
+                umbRequestHelper.convertVirtualToAbsolutePath('~/' + pckg.cssfile.replace(/wwwroot\//i, ''));
+            
+            assetsService.loadCss(cssUri).then(function () {            
+                .then(function () {
+                    $scope.loading = false;
+                    $scope.pckgselected = pckg;
+                })
+                .catch(function (err) {
+                    throw err;
+                });
 
         }
 

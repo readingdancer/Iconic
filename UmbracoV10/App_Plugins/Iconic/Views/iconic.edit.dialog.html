@@ -34,7 +34,6 @@
 
                             <input class="umb-property-editor" name="editTemplate" type="text" ng-model="model.package.template" val-highlight="{{ packageForm.editTemplate.$invalid && packageForm.editTemplate.$dirty}}" required />
 
-
                             <span ng-messages="packageForm.editTemplate.$error" show-validation-on-submit>
                                 <span class="help-inline" ng-message="required"><localize key="iconicValidation_name">Please enter a template</localize></span>
                             </span>
@@ -50,13 +49,16 @@
 
 
                         <umb-control-group label="@iconicConfig_cssFile" description="@iconicConfig_cssFileDescription" required="true">
-                            <input type="hidden" name="editCssFile" required ng-model="model.package.cssfile" />
-                            <umb-node-preview ng-if="model.package.cssfile" icon="'icon-document'" name="model.package.cssfile" allow-remove="true" on-remove="removeCssFile()">
-                            </umb-node-preview>
+                            <div class="flex">
+                                <label class="control-label">File Path: </label>
+                                <input type="text" class="umb-property-editor" name="editCssFile" required ng-model="model.package.cssfile"
+                                       placeholder="Enter partial or absolute URL, or select from the filesystem."/>
 
-                            <a ng-hide="model.package.cssfile" href="" class="umb-node-preview-add" ng-click="openCssFilePicker(model.package.cssfile)" prevent-default>
-                                <localize key="general_add">Add</localize>
-                            </a>
+                                <umb-button action="openCssFilePicker(model.package.cssfile)"
+                                            label="Select"
+                                            type="button"></umb-button>
+
+                            </div>
 
                             <span ng-messages="packageForm.editCssFile.$error" show-validation-on-submit>
                                 <span class="help-inline" ng-message="required"><localize key="iconicValidation_css">Please select a CSS file</localize></span>
@@ -79,14 +81,17 @@
 
                             <umb-control-group label="@iconicConfig_rulesFile" description="@iconicConfig_rulesFileDescription">
 
-                                <input name="editSourceFile" type="hidden" ng-model="model.package.sourcefile" required />
+                                <div class="flex">
+                                    <label class="control-label">File Path: </label>
+                                    <input type="text" class="umb-property-editor" name="editSourceFile" required ng-model="model.package.sourcefile"
+                                           placeholder="Enter partial or absolute URL, or select from the filesystem."/>
 
-                                <umb-node-preview ng-if="model.package.sourcefile" icon="'icon-document'" name="model.package.sourcefile" allow-remove="true" on-remove="removeRulesFile()">
-                                </umb-node-preview>
+                                    <umb-button action="openRulesFilePicker()"
+                                                label="Select"
+                                                type="button"></umb-button>
 
-                                <a ng-hide="model.package.sourcefile" href="" class="umb-node-preview-add" ng-click="openRulesFilePicker()" prevent-default>
-                                    <localize key="general_add">Add</localize>
-                                </a>
+                                </div>
+
                                 <span ng-messages="packageForm.editSourceFile.$error" show-validation-on-submit>
                                     <span class="help-inline" ng-message="required"><localize key="iconicValidation_rules">Please select a valid CSS file</localize></span>
                                 </span>
@@ -118,7 +123,8 @@
 
                 <umb-box ng-show="error" class="umb-alert--warning" style="background-color: #f5c1bc;">
                     <umb-box-content>
-                        <umb-icon icon="icon-alert"></umb-icon> {{ error }}</umb-box-content>
+                        <umb-icon icon="icon-alert"></umb-icon> {{ error }}
+                    </umb-box-content>
                 </umb-box>
             </umb-editor-container>
 

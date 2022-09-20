@@ -36,6 +36,8 @@ On the Packages Configuration property, click the Add button. This will display 
     * You can use absolute paths: `http:\\\www.yoursite.com\styles\fonts\my-font-package.css`. This allows you to use external files, like the ones from a CDN.
     * Or relative to the root: `\styles\fonts\my-font-package.css`
     This file will be loaded in the head of your backoffice and will affect the whole view so be careful of what you load there. Check the Known Issues section for some more info.
+    * Use the Select button to pick files from your local installation.
+    
 
 5. Template. This will be the template your icon will be based on. You can use the value ```{icon}``` as placeholder for your icon specific rule. For instance, for Font Awesome you should enter something like: `<i class="fa {icon}"></i>`
 6. Override Backoffice template. Optional. You can override the Template value to use differente templates for frontend and backoffice.
