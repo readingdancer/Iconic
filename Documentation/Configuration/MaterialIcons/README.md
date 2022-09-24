@@ -17,8 +17,7 @@ If you're having issues configuring Material Icons, try this configuration:
 
 **Rules file**: https://github.com/skartknet/Iconic/tree/master/Documentation/Configuration/MaterialIcons/codepoints.css
 
-**11/4/2022 UPDATE**
-The link to the codepoints file now returns a file with a JSON object.
+
 In order to make it work, you need to download the file and remove the first and last `{` `}` so the Icon service that loads the file doesn't think it's an actual obj and it returns it as plain text.
 The regex for the Selector input needs to be **"(\w+)":\s"[^"]"**
 
