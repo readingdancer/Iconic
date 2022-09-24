@@ -15,7 +15,7 @@ If you're having issues configuring Material Icons, try this configuration:
 
 **Css File**: https://fonts.googleapis.com/icon?family=Material+Icons
 
-**Rules file**: https://raw.githubusercontent.com/google/material-design-icons/master/iconfont/codepoints
+**Rules file**: https://github.com/skartknet/Iconic/tree/master/Documentation/Configuration/MaterialIcons/codepoints.css
 
 **11/4/2022 UPDATE**
 The link to the codepoints file now returns a file with a JSON object.
