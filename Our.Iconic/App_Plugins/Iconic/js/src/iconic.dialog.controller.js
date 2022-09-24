@@ -18,7 +18,7 @@
             var cssUri = isExternalUri(pckg.cssfile) ? pckg.cssfile :
                 umbRequestHelper.convertVirtualToAbsolutePath('~/' + pckg.cssfile.replace(/wwwroot\//i, ''));
             
-            assetsService.loadCss(cssUri).then(function () {            
+            assetsService.loadCss(cssUri)       
                 .then(function () {
                     $scope.loading = false;
                     $scope.pckgselected = pckg;
