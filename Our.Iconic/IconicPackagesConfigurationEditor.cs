@@ -2,7 +2,7 @@
 using Umbraco.Cms.Core.PropertyEditors;
 using Umbraco.Cms.Core.Services;
 
-namespace Our.Iconic.RCL
+namespace Our.Iconic
 {
     public class IconicPackagesConfigurationEditor : ConfigurationEditor<IconicPackagesConfiguration>
     {

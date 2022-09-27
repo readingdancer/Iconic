@@ -2,9 +2,22 @@
     select {
         margin-top: 10px;
     }
-
     .umb-iconpicker-item a {
         color: black;
+    }
+}
+
+.our-iconic__form {
+    legend {
+        small {
+            color: #817f85;
+            font-size: 12px;
+            line-height: 1.5em;
+            padding-top: 5px;
+            display: block;
+            font-weight: 400;
+            text-decoration: none;
+        }
     }
 }
 
@@ -12,17 +25,14 @@
     .umb-panel-header-icon {
         border: 1px dashed #bbbabf;
         font-weight: 700;
-
         &:hover {
             color: #2152a3;
             border-color: #2152a3;
         }
-
         &:focus {
             outline-color: #6ab4f0;
         }
     }
-
     &.preview {
         .umb-panel-header-icon.preview {
             eview {
@@ -30,15 +40,12 @@
             }
         }
     }
-
     .umb-iconpicker-item.selected {
         border: 1px dashed #808080;
         background-color: lightyellow;
     }
-
     .group-horizontal {
         display: flex;
-
         & * {
             margin-right: 1em;
         }

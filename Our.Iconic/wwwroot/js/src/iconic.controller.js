@@ -1,5 +1,5 @@
 angular.module("umbraco")
-    .controller("Our.Iconic.Controller", ['$scope', 'assetsService', 'umbRequestHelper', 'overlayService', function ($scope, assetsService, umbRequestHelper, overlayService) {
+    .controller("Our.Iconic.Controller", ['$scope', 'assetsService', 'umbRequestHelper', 'editorService', function ($scope, assetsService, umbRequestHelper, editorService) {
         var config = $scope.model.config;
 
         $scope.pckg;
@@ -23,13 +23,13 @@ angular.module("umbraco")
             $scope.modelIsValid = false;
         };
 
-        $scope.overlay = {
+        var overlay = {
             view: umbRequestHelper.convertVirtualToAbsolutePath("~/App_plugins/Iconic/Views/iconic.dialog.html"),
             title: "Select an icon",
             hideSubmitButton: true,
             submit: $scope.selectIcon,
             close: function () {
-                overlayService.close();
+                editorService.close();
             },
             pickerData: $scope.model.value,
             pickerConfig: config,
@@ -37,7 +37,7 @@ angular.module("umbraco")
         };
 
         $scope.openOverlay = function () {
-            overlayService.open($scope.overlay);
+            editorService.open(overlay);
         }
 
 

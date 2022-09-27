@@ -1,10 +1,8 @@
 ﻿angular.module("umbraco")
-    .controller("Our.Iconic.Dialog.Controller", ['$scope', 'assetsService', 'umbRequestHelper', function($scope, assetsService, umbRequestHelper) {
+    .controller("Our.Iconic.Dialog.Controller", ['$scope', '$http', 'assetsService', 'umbRequestHelper', function($scope, $http, assetsService, umbRequestHelper) {
 
         $scope.packages = $scope.model.pickerConfig.packages;
         $scope.pckgselected = null;
-
-
         $scope.iconsSize = 16;
         $scope.styles = [];
         $scope.loading = false;
@@ -17,24 +15,26 @@
 
             var cssUri = isExternalUri(pckg.cssfile) ? pckg.cssfile :
                 umbRequestHelper.convertVirtualToAbsolutePath('~/' + pckg.cssfile.replace(/wwwroot\//i, ''));
-            
-            assetsService.loadCss(cssUri)       
-                .then(function () {
-                    $scope.loading = false;
-                    $scope.pckgselected = pckg;
-                })
-                .catch(function (err) {
-                    throw err;
-                });
 
+            $http.get(cssUri).then(
+                function (response) {
+                    assetsService.loadCss(cssUri)
+                        .then(function () {
+                            $scope.loading = false;
+                            $scope.pckgselected = pckg;
+                        });
+                },
+                function (response) {
+                    displayError("iconicErrors_loading");
+                }
+            );                       
         }
 
 
 
         $scope.selectIcon = function(icon) {
             $scope.model.pickerData = new Icon(icon, $scope.pckgselected.id);
-            $scope.submitForm($scope.model); //it passes the model back to the overlay caller
-            $scope.closeOverLay();
+            $scope.model.submit($scope.model); //it passes the model back to the overlay caller            
         }
 
 

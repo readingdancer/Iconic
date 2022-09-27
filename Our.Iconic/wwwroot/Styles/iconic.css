@@ -1,8 +1,18 @@
-﻿.our-iconic__dialog select {
+.our-iconic__dialog select {
   margin-top: 10px;
 }
 .our-iconic__dialog .umb-iconpicker-item a {
   color: black;
+}
+
+.our-iconic__form legend small {
+  color: #817f85;
+  font-size: 12px;
+  line-height: 1.5em;
+  padding-top: 5px;
+  display: block;
+  font-weight: 400;
+  text-decoration: none;
 }
 
 .our-iconic__container .umb-panel-header-icon {

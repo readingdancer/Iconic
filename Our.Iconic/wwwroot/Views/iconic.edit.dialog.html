@@ -1,5 +1,5 @@
 <div ng-controller="Our.Iconic.Prevalues.Editor">
-    <form name="packageForm" novalidate>
+    <form class="our-iconic__form" name="packageForm" novalidate>
         <umb-editor-view>
             <umb-editor-header name="model.title" name-locked="true" hide-alias="true" hide-icon="true" hide-description="true">
             </umb-editor-header>
@@ -42,16 +42,13 @@
                         <umb-control-group label="@iconicConfig_cssFile" description="@iconicConfig_cssFileDescription" required="true">
                             <div class="flex">
                                 <label class="control-label">File Path: </label>
-                                <input type="text" class="umb-property-editor" name="editCssFile" required ng-model="model.package.cssfile"
-                                       placeholder="Enter partial or absolute URL, or select from the filesystem." />
+                                <input type="text" class="umb-property-editor" name="editCssFile" required ng-model="model.package.cssfile" placeholder="Enter partial or absolute URL, or select from the filesystem." />
 
-                                <umb-button action="openCssFilePicker(model.package.cssfile)"
-                                            label="Select"
-                                            type="button"></umb-button>
+                                <umb-button action="openCssFilePicker(model.package.cssfile)" label="Select" type="button"></umb-button>
                             </div>
 
                             <span ng-messages="packageForm.editCssFile.$error">
-                                <span class="help-inline" ng-message="required"><localize key="iconicValidation_css">Please select a CSS file</localize></span>                                
+                                <span class="help-inline" ng-message="required"><localize key="iconicValidation_css">Please select a CSS file</localize></span>
                             </span>
                         </umb-control-group>
 
@@ -73,12 +70,9 @@
 
                                 <div class="flex">
                                     <label class="control-label">File Path: </label>
-                                    <input type="text" class="umb-property-editor" name="editSourceFile" required ng-model="model.package.sourcefile"
-                                           placeholder="Enter partial or absolute URL, or select from the filesystem." />
+                                    <input type="text" class="umb-property-editor" name="editSourceFile" required ng-model="model.package.sourcefile" placeholder="Enter partial or absolute URL, or select from the filesystem." />
 
-                                    <umb-button action="openRulesFilePicker()"
-                                                label="Select"
-                                                type="button"></umb-button>
+                                    <umb-button action="openRulesFilePicker()" label="Select" type="button"></umb-button>
 
                                 </div>
 
@@ -87,6 +81,27 @@
                                 </span>
                             </umb-control-group>
 
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>
+                                <localize key="iconicConfig_filtering">Filter</localize>
+                                <small>Use it to make available just specific icons, instead of the whole set. Leave blank to make all icons available.</small>
+                            </legend>
+                            <div ng-show="packageForm.$valid" class="flex our-iconic__container">
+                                <div ng-repeat="filteredIcon in model.package.filteredIcons">
+                                    <div class="umb-panel-header-icon -placeholder" title="{{filteredIcon}}">
+                                        <iconic-icon package="model.package" icon="filteredIcon">
+                                        </iconic-icon>
+                                    </div>
+                                    <umb-button action="removeFilteredIcon(filteredIcon)" label="Remove" type="link" button-style="link" size="xs"></umb-button>
+                                </div>
+
+                                <div class="umb-panel-header-icon" ng-click="openOverlay()">
+                                    <localize key="general_add" class="ng-isolate-scope" style="font-size: 1rem;">Add</localize>
+                                    <iconic-icon></iconic-icon>
+                                </div>
+                            </div>
                         </fieldset>
 
                         <fieldset>

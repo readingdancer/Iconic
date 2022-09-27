@@ -1,5 +1,5 @@
 ﻿angular.module("umbraco").controller("Our.Iconic.Prevalues.Editor",
-    function ($scope, $http, $timeout, localizationService, editorService, umbRequestHelper, assetsService) {
+    function($scope, $http, $timeout, localizationService, editorService, umbRequestHelper, assetsService) {
 
         $scope.configType = "custom";
         $scope.selectedPreConfig = null;
@@ -8,19 +8,19 @@
         $scope.analysing = "init";
 
 
-        $scope.loadPreview = function () {
+        $scope.loadPreview = function() {
             $scope.previewButtonState = "busy";
             if ($scope.model.package.cssfile) {
                 extractStyles(
                     $scope.model.package,
-                    function (extractedStyles) {
+                    function(extractedStyles) {
                         $scope.previewIcon = extractedStyles[0];
 
                         loadCss();
 
                         $scope.previewButtonState = "success";
                     },
-                    function () {
+                    function() {
                         $scope.previewIcon = null;
                         displayError("iconicErrors_no_rules");
                         $scope.previewButtonState = "error";
@@ -30,12 +30,12 @@
         };
 
 
-        $scope.submit = function () {
+        $scope.submit = function() {
             $scope.analysing = "busy";
             if ($scope.packageForm.$valid) {
                 extractStyles(
                     $scope.model.package,
-                    function () {
+                    function() {
                         $scope.analysing = "success";
                         $scope.selectedPreConfig = null;
 
@@ -44,7 +44,7 @@
                         }
                         editorService.close();
                     },
-                    function () {
+                    function() {
                         $scope.analysing = "error";
                     }
                 );
@@ -52,7 +52,7 @@
             }
         };
 
-        $scope.cancel = function () {
+        $scope.cancel = function() {
             if ($scope.model.cancel) {
                 $scope.model.cancel();
             }
@@ -60,29 +60,28 @@
 
         }
 
-        $scope.changeConfigType = function (value) {
+        $scope.changeConfigType = function(value) {
             $scope.configType = value;
         }
 
-        $scope.toggleOverrideTemplate = function () {
+        $scope.toggleOverrideTemplate = function() {
             $scope.model.package.overrideTemplate = !$scope.model.package.overrideTemplate;
         }
 
-        $scope.openCssFilePicker = function () {
+        $scope.openCssFilePicker = function() {
             const config = {
-                select: function (node) {
+                select: function(node) {
                     const id = unescape(node.id);
                     $scope.model.package.cssfile = id;
                     editorService.close();
                 }
             };
             openTreePicker(config);
-
         };
 
-        $scope.openRulesFilePicker = function () {
+        $scope.openRulesFilePicker = function() {
             const config = {
-                select: function (node) {
+                select: function(node) {
                     const id = unescape(node.id);
                     $scope.model.package.sourcefile = id;
                     editorService.close();
@@ -91,19 +90,55 @@
             openTreePicker(config);
         };
 
-        $scope.selectPreConfig = function (config) {
+        $scope.selectPreConfig = function(config) {
             Object.assign($scope.model.package, config);
         };
+
+
+        var overlay = {
+            view: umbRequestHelper.convertVirtualToAbsolutePath("~/App_plugins/Iconic/Views/iconic.dialog.html"),
+            title: "Select an icon",
+            size: "small",
+            submit: function(model) {
+                $scope.model.package.filteredIcons = $scope.model.package.filteredIcons || [];
+                $scope.model.package.filteredIcons.push(model.pickerData.icon);
+                editorService.close();
+            },
+            close: function() {
+                editorService.close();
+            },
+            pickerConfig: {
+                packages: [$scope.model.package]
+            }
+        };
+
+        $scope.openOverlay = function() {
+            editorService.open(overlay);
+        }
+
+
+        $scope.removeFilteredIcon = function(idx) {
+            $scope.model.package.filteredIcons.splice(idx, 1);
+        }
+
+        $scope.removeCssFile = function() {
+            $scope.model.package.cssfile = null;
+        };
+
+        $scope.removeRulesFile = function() {
+            $scope.model.package.sourcefile = null;
+        };
+
 
         function loadCss() {
             var cssUri = isExternalUri($scope.model.package.cssfile) ? $scope.model.package.cssfile :
                 umbRequestHelper.convertVirtualToAbsolutePath('~/' + $scope.model.package.cssfile.replace(/wwwroot\//i, ''));
 
             $http.get(cssUri).then(
-                function (response) {
+                function(response) {
                     assetsService.loadCss(cssUri);
                 },
-                function (response) {
+                function(response) {
                     displayError("iconicErrors_loading");
                 }
             );
@@ -111,10 +146,10 @@
 
         function loadPreconfigs() {
             $http.get(umbRequestHelper.convertVirtualToAbsolutePath("~/App_Plugins/Iconic/preconfigs.json")).then(
-                function (response) {
+                function(response) {
                     $scope.preconfig = response.data.preconfigs;
                 },
-                function (response) {
+                function(response) {
                     displayError("iconicErrors_loading");
                 }
             );
@@ -125,27 +160,25 @@
         }
 
         function displayError(alias) {
-            localizationService.localize(alias).then(function (response) {
+            localizationService.localize(alias).then(function(response) {
                 $scope.error = response.value;
             });
         }
 
-
-
         function openTreePicker(config) {
-            const picker = {
+            var picker = {
                 title: "Select file",
                 section: "settings",
                 treeAlias: "files",
                 entityType: "file",
-                filter: function (i) {
+                filter: function(i) {
                     if (i.name.indexOf(".min.css") === -1 &&
                         i.name.indexOf(".css") === -1) {
                         return true;
                     }
                 },
                 filterCssClass: "not-allowed",
-                close: function () {
+                close: function() {
                     editorService.close();
                 }
             };
@@ -153,20 +186,6 @@
             var args = _.assign(picker, config);
 
             editorService.treePicker(args);
-        }
-
-        $scope.removeCssFile = function () {
-            $scope.model.package.cssfile = null;
-        };
-
-        $scope.removeRulesFile = function () {
-            $scope.model.package.sourcefile = null;
-        };
-
-        function displayError(alias) {
-            localizationService.localize(alias).then(function (response) {
-                $scope.error = response;
-            });
         }
 
         function extractStyles(item, successCallback, errorCallback) {
@@ -185,7 +204,7 @@
                 umbRequestHelper.convertVirtualToAbsolutePath("~/" + item.sourcefile.replace("wwwroot/", ""));
 
             $http.get(path).then(
-                function (response) {
+                function(response) {
                     item.extractedStyles = [];
 
                     try {
@@ -209,7 +228,7 @@
                         errorCallback();
                     }
                 },
-                function (response) {
+                function(response) {
                     displayError("iconicErrors_loadingCss");
                     errorCallback();
                 }

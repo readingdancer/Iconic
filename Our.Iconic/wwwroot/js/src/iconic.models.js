@@ -16,6 +16,7 @@ class Package {
         this.cssfile = "";
         this.sourcefile = "";
         this.extractedStyles = [];
+        this.filteredIcons = [];
     }
 
     uuid() {
