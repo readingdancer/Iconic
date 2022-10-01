@@ -97,16 +97,17 @@
 
         var overlay = {
             view: umbRequestHelper.convertVirtualToAbsolutePath("~/App_plugins/Iconic/Views/iconic.dialog.html"),
-            title: "Select an icon",
+            title: "Select icons",
             size: "small",
-            submit: function(model) {
+            submit: function(icons) {
                 $scope.model.package.filteredIcons = $scope.model.package.filteredIcons || [];
-                $scope.model.package.filteredIcons.push(model.pickerData.icon);
+                $scope.model.package.filteredIcons = icons;
                 editorService.close();
             },
-            close: function() {
+            cancel: function() {
                 editorService.close();
             },
+            pickerData: $scope.model.package.filteredIcons,
             pickerConfig: {
                 packages: [$scope.model.package]
             }

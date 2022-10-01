@@ -83,7 +83,7 @@
 
                         </fieldset>
 
-                        <fieldset>
+                        <fieldset class="filters">
                             <legend>
                                 <localize key="iconicConfig_filtering">Filter</localize>
                                 <small>Use it to make available just specific icons, instead of the whole set. Leave blank to make all icons available.</small>
@@ -91,10 +91,12 @@
                             <div ng-show="packageForm.$valid" class="flex our-iconic__container">
                                 <div ng-repeat="filteredIcon in model.package.filteredIcons">
                                     <div class="umb-panel-header-icon -placeholder" title="{{filteredIcon}}">
-                                        <iconic-icon package="model.package" icon="filteredIcon">
+                                        <iconic-icon package="model.package" icon="filteredIcon.icon">
                                         </iconic-icon>
                                     </div>
-                                    <umb-button action="removeFilteredIcon(filteredIcon)" label="Remove" type="link" button-style="link" size="xs"></umb-button>
+                                    <button ng-click="removeFilteredIcon(filteredIcon)" class="button-remove" prevent-default>
+                                        <localize key="general_remove" class="ng-isolate-scope">Remove</localize>
+                                    </umb-button>
                                 </div>
 
                                 <div class="umb-panel-header-icon" ng-click="openOverlay()">

@@ -14,6 +14,17 @@
   font-weight: 400;
   text-decoration: none;
 }
+.our-iconic__form .filters .button-remove {
+  background: 0 0;
+  border: 0;
+  color: #1b264f;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  margin-left: 0px;
+  margin-right: 5px;
+  padding: 0;
+}
 
 .our-iconic__container .umb-panel-header-icon {
   border: 1px dashed #bbbabf;
@@ -25,9 +36,6 @@
 }
 .our-iconic__container .umb-panel-header-icon:focus {
   outline-color: #6ab4f0;
-}
-.our-iconic__container.preview .umb-panel-header-icon.preview eview {
-  margin-top: 20px;
 }
 .our-iconic__container .umb-iconpicker-item.selected {
   border: 1px dashed #808080;
