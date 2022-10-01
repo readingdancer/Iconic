@@ -49,9 +49,9 @@
             $scope.model.cancel();
         }
 
-        $scope.isInSelectedIcons = function() {
-            return $scope.value.find((el) => el.icon === icon && el.packageId === $scope.pckgselected.id);
-        }
+        // $scope.isInSelectedIcons = function() {
+        //     return $scope.value.find((el) => el.icon === icon && el.packageId === $scope.pckgselected.id);
+        // }
 
         function initOverlay() {
             var pckg;

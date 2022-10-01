@@ -7,9 +7,9 @@ angular.module("umbraco")
         $scope.icon;
 
         $scope.selectIcon = function(model) {
-            if (model.pickerData.icon && model.pickerData.packageId) {
-                $scope.pckg = loadPackage(config.packages, model.pickerData.packageId);
-                $scope.model.value = model.pickerData;
+            if (model.icon && model.packageId) {
+                $scope.pckg = loadPackage(config.packages, model.packageId);
+                $scope.model.value = model;
                 $scope.modelIsValid = true;
             } else {
                 $scope.modelIsValid = false;
@@ -26,14 +26,17 @@ angular.module("umbraco")
         var overlay = {
             view: umbRequestHelper.convertVirtualToAbsolutePath("~/App_plugins/Iconic/Views/iconic.dialog.html"),
             title: "Select an icon",
-            hideSubmitButton: true,
-            submit: $scope.selectIcon,
-            close: function() {
+            size: 'small',
+            iconLimit: 1,
+            submit: function(icons) {
+                $scope.selectIcon(icons[0]);
+                editorService.close();
+            },
+            cancel: function() {
                 editorService.close();
             },
             pickerData: $scope.model.value,
-            pickerConfig: config,
-            position: 'right'
+            pickerConfig: config
         };
 
         $scope.openOverlay = function() {
@@ -47,7 +50,9 @@ angular.module("umbraco")
 
         function initPicker() {
             $scope.loading = true;
-            if (!angular.isObject($scope.model.value)) $scope.model.value = {};
+            if (!angular.isObject($scope.model.value)) {
+                $scope.model.value = {};
+            }
 
             if ($scope.model.value && $scope.model.value.packageId && $scope.model.value.icon) {
 
