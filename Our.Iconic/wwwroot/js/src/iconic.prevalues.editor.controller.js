@@ -95,32 +95,38 @@
         };
 
 
-        var overlay = {
+        $scope.overlay = {
             view: umbRequestHelper.convertVirtualToAbsolutePath("~/App_plugins/Iconic/Views/iconic.dialog.html"),
             title: "Select icons",
             size: "small",
             submit: function(icons) {
-                $scope.model.package.filteredIcons = $scope.model.package.filteredIcons || [];
-                $scope.model.package.filteredIcons = icons;
+                var temp = [];
+                icons.forEach(function(element) {
+                    temp.push(element.icon);
+                });
+                $scope.model.package.filteredIcons = temp;
                 editorService.close();
             },
             cancel: function() {
                 editorService.close();
             },
-            pickerData: $scope.model.package.filteredIcons,
             pickerConfig: {
                 packages: [$scope.model.package]
             }
         };
 
         $scope.openOverlay = function() {
-            editorService.open(overlay);
-        }
+            $scope.overlay.pickerData = [];
+            $scope.model.package.filteredIcons.forEach(function(element) {
+                $scope.overlay.pickerData.push(new Icon(element, $scope.model.package.id));
+            });
+            editorService.open($scope.overlay);
+        };
 
 
         $scope.removeFilteredIcon = function(idx) {
             $scope.model.package.filteredIcons.splice(idx, 1);
-        }
+        };
 
         $scope.removeCssFile = function() {
             $scope.model.package.cssfile = null;

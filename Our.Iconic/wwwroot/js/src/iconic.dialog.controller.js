@@ -6,6 +6,7 @@
         $scope.iconsSize = 16;
         $scope.styles = [];
         $scope.loading = false;
+        $scope.icons = [];
         $scope.value = angular.copy($scope.model.pickerData, []);
 
         $scope.loadPackage = function(pckg) {
@@ -22,7 +23,8 @@
                     assetsService.loadCss(cssUri)
                         .then(function() {
                             $scope.loading = false;
-                            $scope.pckgselected = pckg;
+                            $scope.pckgselected = new Package(pckg);
+                            $scope.icons = getIcons();
                         });
                 },
                 function(response) {
@@ -31,14 +33,36 @@
             );
         }
 
-
+        function getIcons() {
+            if ($scope.pckgselected == null) return [];
+            if ($scope.model.filterIcons) {
+                return $scope.pckgselected.getFilteredIcons();
+            } else {
+                return $scope.pckgselected.extractedStyles;
+            }
+        }
 
         $scope.selectIcon = function(icon) {
-            $scope.value.push(new Icon(icon, $scope.pckgselected.id));
+            if (icon == null) return;
 
-            if ($scope.model.iconLimit && $scope.value.length >= $scope.model.iconLimit) {
-                $scope.submit();
+            var iconModel = new Icon(icon, $scope.pckgselected.id);
+
+            var existingIcon = $scope.value.find(x => x.icon == iconModel.icon && x.packageId == iconModel.packageId)
+            if (existingIcon != null) {
+                $scope.value.slice($scope.value.indexOf(iconModel), 1);
+                return;
             }
+
+            if ($scope.model.iconsLimit === 1) {
+                $scope.value = [];
+                $scope.value.push(iconModel);
+            }
+
+            if (!$scope.model.iconsLimit || $scope.value.length < $scope.model.iconsLimit) {
+                $scope.value.push(iconModel);
+            }
+
+            $scope.submit();
         }
 
         $scope.submit = function() {
@@ -49,21 +73,13 @@
             $scope.model.cancel();
         }
 
-        // $scope.isInSelectedIcons = function() {
-        //     return $scope.value.find((el) => el.icon === icon && el.packageId === $scope.pckgselected.id);
-        // }
+        $scope.isInSelectedIcons = function(icon) {
+            return $scope.value.find((el) => el.icon === icon && el.packageId === $scope.pckgselected.id) != null;
+        }
 
         function initOverlay() {
-            var pckg;
 
-            if ($scope.value && $scope.value.packageId) {
-                pckg = $scope.model.pickerConfig.packages.find((el) => el.id == $scope.value.packageId);
-            }
-
-            //if there is only one package we select that one, regardless what the stored values says.
-            if ($scope.packages.length === 1) {
-                pckg = $scope.packages[0];
-            }
+            pckg = $scope.packages[0];
 
             if (angular.isObject(pckg)) {
                 $scope.loadPackage(pckg);

@@ -91,10 +91,10 @@
                             <div ng-show="packageForm.$valid" class="flex our-iconic__container">
                                 <div ng-repeat="filteredIcon in model.package.filteredIcons">
                                     <div class="umb-panel-header-icon -placeholder" title="{{filteredIcon}}">
-                                        <iconic-icon package="model.package" icon="filteredIcon.icon">
+                                        <iconic-icon package="model.package" icon="filteredIcon">
                                         </iconic-icon>
                                     </div>
-                                    <button ng-click="removeFilteredIcon(filteredIcon)" class="button-remove" prevent-default>
+                                    <button ng-click="removeFilteredIcon($index)" class="button-remove" prevent-default>
                                         <localize key="general_remove" class="ng-isolate-scope">Remove</localize>
                                     </umb-button>
                                 </div>

@@ -26,11 +26,11 @@
 
             <umb-load-indicator ng-if="loading"></umb-load-indicator>
 
-            <div class="umb-control-group" ng-show="!loading && filtered.length > 0">
+            <div class="umb-control-group our-iconic__container" ng-show="!loading && filtered.length > 0">
                 <ul class="umb-iconpicker" ng-show="pckgselected.extractedStyles">
-                    <li ng-class="{selected: isInSelectedIcons(icon)}" class="umb-iconpicker-item" ng-repeat="icon in filtered = (pckgselected.extractedStyles | filter: searchTerm) track by $index">
+                    <li ng-class="{selected: isInSelectedIcons(icon)}" class="umb-iconpicker-item" ng-repeat="icon in filtered = (icons | filter: searchTerm) track by $index">
                         <button type="button" title="{{icon}}" ng-click="selectIcon(icon)" prevent-default>
-                            <iconic-icon package="pckgselected" icon="icon"></iconic-icon>
+                            <iconic-icon package="pckgselected" icon="icon" class="flex"></iconic-icon>
                         </button>
                     </li>
                 </ul>
@@ -46,7 +46,8 @@
         </umb-editor-container>
         <umb-editor-footer>
             <umb-editor-footer-content-right>
-                <umb-button action="submit()" type="button" button-style="success" label="Done"></umb-button>
+                {{ iconsLimit }}
+                <umb-button action="submit()" type="button" button-style="success" label="Done" ng-show="model.iconsLimit > 1 || !model.iconsLimit"></umb-button>
                 <umb-button action="cancel()" type="button" button-style="link" label-key="iconicConfig_cancel"> </umb-button>
             </umb-editor-footer-content-right>
         </umb-editor-footer>

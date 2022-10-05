@@ -9,7 +9,7 @@ angular.module("umbraco")
         $scope.selectIcon = function(model) {
             if (model.icon && model.packageId) {
                 $scope.pckg = loadPackage(config.packages, model.packageId);
-                $scope.model.value = model;
+                $scope.model.value.icon = model.icon;
                 $scope.modelIsValid = true;
             } else {
                 $scope.modelIsValid = false;
@@ -27,7 +27,8 @@ angular.module("umbraco")
             view: umbRequestHelper.convertVirtualToAbsolutePath("~/App_plugins/Iconic/Views/iconic.dialog.html"),
             title: "Select an icon",
             size: 'small',
-            iconLimit: 1,
+            iconsLimit: 1,
+            filterIcons: true,
             submit: function(icons) {
                 $scope.selectIcon(icons[0]);
                 editorService.close();
@@ -35,7 +36,7 @@ angular.module("umbraco")
             cancel: function() {
                 editorService.close();
             },
-            pickerData: $scope.model.value,
+            pickerData: [$scope.model.value],
             pickerConfig: config
         };
 
@@ -45,7 +46,9 @@ angular.module("umbraco")
 
 
         function loadPackage(packages, packageId) {
-            return packages.find((el) => el.id === packageId);
+            return packages.find(function(el) {
+                return el.id === packageId;
+            });
         }
 
         function initPicker() {
