@@ -1,5 +1,5 @@
 angular.module("umbraco")
-    .controller("Our.Iconic.Controller", ['$scope', 'assetsService', 'umbRequestHelper', 'editorService', function($scope, assetsService, umbRequestHelper, editorService) {
+    .controller("Our.Iconic.Controller", ['$scope', '$http', 'assetsService', 'umbRequestHelper', 'editorService', function($scope, $http, assetsService, umbRequestHelper, editorService) {
         var config = $scope.model.config;
 
         $scope.pckg;
@@ -61,13 +61,31 @@ angular.module("umbraco")
 
                 $scope.pckg = loadPackage(config.packages, $scope.model.value.packageId);
                 if ($scope.pckg) {
-                    assetsService.loadCss('~/' + $scope.pckg.cssfile.replace(/wwwroot\//i, ''));
+                    loadCss($scope.pckg.cssfile);
                     $scope.modelIsValid = true;
                 }
             } else {
                 $scope.modelIsValid = false;
             }
             $scope.loading = false;
+        }
+
+        function loadCss(uri) {
+            var cssUri = isExternalUri(uri) ? uri :
+                umbRequestHelper.convertVirtualToAbsolutePath('~/' + uri.replace(/wwwroot\//i, ''));
+
+            $http.get(cssUri).then(
+                function(response) {
+                    assetsService.loadCss(cssUri);
+                },
+                function(response) {
+                    displayError("iconicErrors_loading");
+                }
+            );
+        }
+
+        function isExternalUri(uri) {
+            return uri.indexOf("://") > -1;
         }
 
         initPicker();

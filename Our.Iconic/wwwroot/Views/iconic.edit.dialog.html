@@ -47,7 +47,7 @@
                                 <umb-button action="openCssFilePicker(model.package.cssfile)" label="Select" type="button"></umb-button>
                             </div>
 
-                            <span ng-messages="packageForm.editCssFile.$error">
+                            <span ng-messages="packageForm.editCssFile.$error" show-validation-on-submit>
                                 <span class="help-inline" ng-message="required"><localize key="iconicValidation_css">Please select a CSS file</localize></span>
                             </span>
                         </umb-control-group>
@@ -104,13 +104,16 @@
                                     <iconic-icon></iconic-icon>
                                 </div>
                             </div>
+                            <div ng-hide="packageForm.$valid">
+                                <p>Package configuration is not valid.</p>
+                            </div>
                         </fieldset>
 
                         <fieldset>
                             <legend>
                                 <localize key="iconicConfig_preview">Preview</localize>
                             </legend>
-                            <div class="our-iconic__container preview flex">
+                            <div class="our-iconic__container preview flex" ng-show="packageForm.$valid">
                                 <div class="umb-panel-header-icon">
                                     <iconic-icon package="model.package" icon="previewIcon">
                                     </iconic-icon>
@@ -123,6 +126,9 @@
                                     <umb-button action="loadPreview()" state="previewButtonState" label="Reload Preview" class="ml0" type="button" button-style="info" size="xs" disabled="packageForm.$invalid">
                                     </umb-button>
                                 </div>
+                            </div>
+                            <div ng-hide="packageForm.$valid">
+                                <p>Package configuration is not valid.</p>
                             </div>
                         </fieldset>
                     </umb-box-content>

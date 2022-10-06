@@ -8,16 +8,29 @@
 class Package {
 
     constructor(obj) {
-        this.id = obj.id || this.uuid();
-        this.name = obj.name || "";
-        this.selector = obj.selector || "";
-        this.template = obj.template || '<i class="{icon}"></i>';
-        this.overrideTemplate = obj.overrideTemplate || false;
-        this.backofficeTemplate = obj.backofficeTemplate || "";
-        this.cssfile = obj.cssfile || "";
-        this.sourcefile = obj.sourcefile || "";
-        this.extractedStyles = obj.extractedStyles || [];
-        this.filteredIcons = obj.filteredIcons || [];
+        if (obj) {
+            this.id = obj.id || this.uuid();
+            this.name = obj.name || "";
+            this.selector = obj.selector || "";
+            this.template = obj.template || '<i class="{icon}"></i>';
+            this.overrideTemplate = obj.overrideTemplate || false;
+            this.backofficeTemplate = obj.backofficeTemplate || "";
+            this.cssfile = obj.cssfile || "";
+            this.sourcefile = obj.sourcefile || "";
+            this.extractedStyles = obj.extractedStyles || [];
+            this.filteredIcons = obj.filteredIcons || [];
+        } else {
+            this.id = this.uuid();
+            this.name = "";
+            this.selector = "";
+            this.template = '<i class="{icon}"></i>';
+            this.overrideTemplate = false;
+            this.backofficeTemplate = "";
+            this.cssfile = "";
+            this.sourcefile = "";
+            this.extractedStyles = [];
+            this.filteredIcons = [];
+        }
     }
 
     uuid() {

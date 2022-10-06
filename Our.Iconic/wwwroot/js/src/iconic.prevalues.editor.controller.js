@@ -15,9 +15,7 @@
                     $scope.model.package,
                     function(extractedStyles) {
                         $scope.previewIcon = extractedStyles[0];
-
-                        loadCss();
-
+                        loadCss($scope.model.package.cssfile);
                         $scope.previewButtonState = "success";
                     },
                     function() {
@@ -137,9 +135,9 @@
         };
 
 
-        function loadCss() {
-            var cssUri = isExternalUri($scope.model.package.cssfile) ? $scope.model.package.cssfile :
-                umbRequestHelper.convertVirtualToAbsolutePath('~/' + $scope.model.package.cssfile.replace(/wwwroot\//i, ''));
+        function loadCss(uri) {
+            var cssUri = isExternalUri(uri) ? uri :
+                umbRequestHelper.convertVirtualToAbsolutePath('~/' + uri.replace(/wwwroot\//i, ''));
 
             $http.get(cssUri).then(
                 function(response) {

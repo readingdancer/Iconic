@@ -46,14 +46,21 @@
             outline-color: #6ab4f0;
         }
     }
-    .umb-iconpicker-item.selected {
-        border: 1px dashed #808080;
-        background-color: lightyellow;
-    }
-    .group-horizontal {
-        display: flex;
-        & * {
-            margin-right: 1em;
+    .umb-iconpicker-item {
+        box-sizing: border-box;
+        &.selected {
+            border: 1px dashed #808080;
+            background-color: lightyellow;
         }
+        &:hover {
+            border: 1px dashed #808080;
+        }
+    }
+}
+
+.group-horizontal {
+    display: flex;
+    & * {
+        margin-right: 1em;
     }
 }

@@ -37,13 +37,20 @@
 .our-iconic__container .umb-panel-header-icon:focus {
   outline-color: #6ab4f0;
 }
+.our-iconic__container .umb-iconpicker-item {
+  box-sizing: border-box;
+}
 .our-iconic__container .umb-iconpicker-item.selected {
   border: 1px dashed #808080;
   background-color: lightyellow;
 }
-.our-iconic__container .group-horizontal {
+.our-iconic__container .umb-iconpicker-item:hover {
+  border: 1px dashed #808080;
+}
+
+.group-horizontal {
   display: flex;
 }
-.our-iconic__container .group-horizontal * {
+.group-horizontal * {
   margin-right: 1em;
 }
