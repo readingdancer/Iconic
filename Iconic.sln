@@ -18,7 +18,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Iconic.Core", "Our.Icon
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UmbracoV10", "UmbracoV10\UmbracoV10.csproj", "{4CC4E4FB-914F-405A-9329-545CFB79F435}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Our.Iconic", "Our.Iconic\Our.Iconic.csproj", "{9E17796D-D73D-4781-BA3A-F05457C2C8DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Iconic", "Our.Iconic\Our.Iconic.csproj", "{9E17796D-D73D-4781-BA3A-F05457C2C8DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

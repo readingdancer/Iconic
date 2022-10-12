@@ -6,7 +6,7 @@ With Iconic you will be able to create a property editor that can use virtually 
 
 ## Installation
 
-Use V4 for Umbraco 10.2.0 and bove\
+Use V4 for Umbraco 10.2.0 and above\
 Use V3 for Umbraco 8, 9 & 10.1.0\
 Use V2 for Umbraco 8\
 Use V1 for Umbraco 7

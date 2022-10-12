@@ -12,13 +12,13 @@
 	</Description>
 	<Product>$(AssemblyName)</Product>
 	<PackageTags>umbraco plugin package icon picker editor backoffice</PackageTags>
-	<Version>4.1.0-beta3</Version>
+	<Version>4.1.0-beta4</Version>
 	<Authors>Mario Lopez</Authors>
 	<PackageProjectUrl>https://github.com/Skartknet/Iconic</PackageProjectUrl>
 	<PackageIcon>iconic_logo.png</PackageIcon>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<RepositoryUrl>https://github.com/Skartknet/Iconic</RepositoryUrl>
-	<PackageReleaseNotes>Fixed dialog to display on Umbraco v10.2.0</PackageReleaseNotes>
+	<PackageReleaseNotes></PackageReleaseNotes>
 	<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
