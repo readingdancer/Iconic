@@ -1,5 +1,5 @@
 ﻿angular.module("umbraco").controller("Our.Iconic.Prevalues.Editor",
-    function($scope, $http, $timeout, localizationService, editorService, umbRequestHelper, assetsService) {
+    function($scope, $http, $timeout, localizationService, editorService, umbRequestHelper, assetsService, notificationsService) {
 
         $scope.configType = "custom";
         $scope.selectedPreConfig = null;
@@ -144,7 +144,7 @@
                     assetsService.loadCss(cssUri);
                 },
                 function(response) {
-                    displayError("iconicErrors_loading");
+                    displayError("iconicErrors_loadingCss");
                 }
             );
         }
@@ -155,7 +155,7 @@
                     $scope.preconfig = response.data.preconfigs;
                 },
                 function(response) {
-                    displayError("iconicErrors_loading");
+                    displayError("iconicErrors_loading_preconfigs");
                 }
             );
         }
@@ -166,7 +166,7 @@
 
         function displayError(alias) {
             localizationService.localize(alias).then(function(response) {
-                $scope.error = response.value;
+                notificationsService.error("Invalid Configuration", response);
             });
         }
 
