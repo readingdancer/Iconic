@@ -56,13 +56,13 @@
             if ($scope.model.iconsLimit === 1) {
                 $scope.value = [];
                 $scope.value.push(iconModel);
+                $scope.submit();
             }
 
             if (!$scope.model.iconsLimit || $scope.value.length < $scope.model.iconsLimit) {
                 $scope.value.push(iconModel);
             }
 
-            $scope.submit();
         }
 
         $scope.submit = function() {
