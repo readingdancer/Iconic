@@ -21,7 +21,7 @@ To add or modify your icon just click on the placeholder, this will open a dialo
 Iconic comes with a value converter that will return a HtmlString containing the icon html. So you just have to use the model of your template like so:
 
 ```
-@Html.Raw(Model.Content.MyIcon)
+@Html.Raw(Model.MyIcon)
 ```
 
 Remember to wrap the icon in `Html.Raw` so Razor displays the returned html properly.

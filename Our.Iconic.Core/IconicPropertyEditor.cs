@@ -1,4 +1,5 @@
-﻿using Umbraco.Cms.Core.IO;
+﻿using Our.Iconic.Core;
+using Umbraco.Cms.Core.IO;
 using Umbraco.Cms.Core.PropertyEditors;
 using Umbraco.Cms.Core.Services;
 

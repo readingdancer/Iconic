@@ -1,16 +1,11 @@
-﻿using Newtonsoft.Json.Linq;
-using Our.Iconic.Core.Models;
+﻿using Our.Iconic.Core.Models;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-#if NET5_0_OR_GREATER
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Services;
-#else
-using Umbraco.Core.Models.PublishedContent;
-using Umbraco.Core.Services;
-#endif
+
 namespace Our.Iconic.Core
 {
     public class ConfiguredPackagesCollection
@@ -31,13 +26,11 @@ namespace Our.Iconic.Core
             {
 
                 var dataType = dataTypeService.GetDataType(propertyType.DataType.Id);
-                var configurationJson = (Dictionary<string, object>)dataType.Configuration;
-
-                var editorConfig = ((JArray)configurationJson["packages"]).ToObject<IEnumerable<Package>>();
+                var configurationJson = (IconicPackagesConfiguration)dataType.Configuration;                
 
                 if (!_packagesCache.ContainsKey(uniqueKey))
                 {
-                    _packagesCache.Add(uniqueKey, editorConfig.ToDictionary(p => p.Id));
+                    _packagesCache.Add(uniqueKey, configurationJson.Packages.ToDictionary(p => p.Id));
                 }
             }
 
