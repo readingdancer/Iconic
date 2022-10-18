@@ -18,7 +18,7 @@ angular.module("umbraco")
 
 
             $scope.removeIcon = function() {
-                $scope.model.value = {};
+                $scope.model.value = null;
                 $scope.modelIsValid = false;
             };
 
@@ -28,7 +28,8 @@ angular.module("umbraco")
                 size: 'small',
                 iconsLimit: 1,
                 filterIcons: true,
-                pickerData: [$scope.model.value],
+                pickerPackageId: $scope.model.value.packageId,
+                pickerIcons: [$scope.model.value.icon],
                 pickerConfig: $scope.model.config,
                 submit: function(icons) {
                     $scope.selectIcon(icons[0]);
@@ -40,7 +41,14 @@ angular.module("umbraco")
             };
 
             $scope.openOverlay = function() {
-                $scope.overlay.pickerData = [$scope.model.value];
+                if ($scope.model.value) {
+                    $scope.overlay.pickerIcons = [$scope.model.value.icon];
+                    $scope.overlay.pickerPackageId = $scope.model.value.packageId;
+                } else {
+                    $scope.overlay.pickerIcons = null;
+                    $scope.overlay.pickerPackageId = null;
+                }
+
                 editorService.open($scope.overlay);
             };
 

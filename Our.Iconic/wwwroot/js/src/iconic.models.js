@@ -8,29 +8,18 @@
 class Package {
 
     constructor(obj) {
-        if (obj) {
-            this.id = obj.id || this.uuid();
-            this.name = obj.name || "";
-            this.selector = obj.selector || "";
-            this.template = obj.template || '<i class="{icon}"></i>';
-            this.overrideTemplate = obj.overrideTemplate || false;
-            this.backofficeTemplate = obj.backofficeTemplate || "";
-            this.cssfile = obj.cssfile || "";
-            this.sourcefile = obj.sourcefile || "";
-            this.extractedStyles = obj.extractedStyles || [];
-            this.filteredIcons = obj.filteredIcons || [];
-        } else {
-            this.id = this.uuid();
-            this.name = "";
-            this.selector = "";
-            this.template = '<i class="{icon}"></i>';
-            this.overrideTemplate = false;
-            this.backofficeTemplate = "";
-            this.cssfile = "";
-            this.sourcefile = "";
-            this.extractedStyles = [];
-            this.filteredIcons = [];
-        }
+
+        this.id = this.uuid();
+        this.name = "";
+        this.selector = "";
+        this.template = '<i class="{icon}"></i>';
+        this.overrideTemplate = false;
+        this.backofficeTemplate = "";
+        this.cssfile = "";
+        this.sourcefile = "";
+        this.extractedStyles = [];
+        this.filteredIcons = [];
+
     }
 
     uuid() {
@@ -45,13 +34,5 @@ class Package {
             uuid += (i == 12 ? 4 : (i == 16 ? (random & 3 | 8) : random)).toString(16);
         }
         return uuid;
-    }
-
-    getFilteredIcons() {
-        if (this.filteredIcons.length > 0) {
-            return this.filteredIcons;
-        } else {
-            return this.extractedStyles;
-        }
     }
 }

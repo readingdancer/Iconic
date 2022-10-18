@@ -29,5 +29,8 @@ namespace Our.Iconic.Core.Models
 
         [JsonProperty(PropertyName = "extractedStyles")]
         public IEnumerable<string> ExtractedStyles { get; set; }
+
+        [JsonProperty(PropertyName = "filteredIcons")]
+        public IEnumerable<string> FilteredIcons { get; set; }
     }
 }

@@ -7,7 +7,7 @@
         $scope.styles = [];
         $scope.loading = false;
         $scope.icons = [];
-        $scope.value = angular.copy($scope.model.pickerData, []);
+        $scope.value = angular.copy($scope.model.pickerIcons, []);
 
         $scope.loadPackage = function(pckg) {
 
@@ -23,7 +23,7 @@
                     assetsService.loadCss(cssUri)
                         .then(function() {
                             $scope.loading = false;
-                            $scope.pckgselected = new Package(pckg);
+                            $scope.pckgselected = pckg;
                             $scope.icons = getIcons();
                         });
                 },
@@ -36,7 +36,11 @@
         function getIcons() {
             if ($scope.pckgselected == null) return [];
             if ($scope.model.filterIcons) {
-                return $scope.pckgselected.getFilteredIcons();
+                if ($scope.pckgselected.filteredIcons && $scope.pckgselected.filteredIcons.length > 0) {
+                    return $scope.pckgselected.filteredIcons;
+                } else {
+                    return $scope.pckgselected.extractedStyles;
+                }
             } else {
                 return $scope.pckgselected.extractedStyles;
             }
@@ -47,8 +51,8 @@
 
             var iconModel = new Icon(icon, $scope.pckgselected.id);
 
-            var existingIcon = $scope.value.find(x => x.icon == iconModel.icon && x.packageId == iconModel.packageId)
-            if (existingIcon != null) {
+            var existingIcon = $scope.value.find(x => x.icon == iconModel.icon && x.pickerPackageId == iconModel.packageId)
+            if (existingIcon) {
                 $scope.value.slice($scope.value.indexOf(iconModel), 1);
                 return;
             }
@@ -60,7 +64,7 @@
             }
 
             if (!$scope.model.iconsLimit || $scope.value.length < $scope.model.iconsLimit) {
-                $scope.value.push(iconModel);
+                $scope.value.push(iconModel.icon);
             }
 
         }
@@ -74,12 +78,19 @@
         }
 
         $scope.isInSelectedIcons = function(icon) {
-            return $scope.value.find((el) => el.icon === icon && el.packageId === $scope.pckgselected.id) != null;
+            if ($scope.value) {
+                return $scope.value.find((el) => el === icon && $scope.pckgselected.id === $scope.model.pickerPackageId) != null;
+            }
+
+            return false;
         }
 
         function initOverlay() {
 
-            pckg = $scope.packages[0];
+            var pckg = $scope.packages.find(el => el.id == $scope.model.pickerPackageId);
+            if (!pckg && $scope.packages) {
+                pckg = $scope.packages[0];
+            }
 
             if (angular.isObject(pckg)) {
                 $scope.loadPackage(pckg);
