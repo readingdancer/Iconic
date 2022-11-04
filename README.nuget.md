@@ -8,6 +8,8 @@ With Iconic you will be able to create a property editor that can use virtually 
 
 This repository includes multi-targeted version 3 for Umbraco 8, 9 & 10.
 
+Version 5 is no longer multi-targeted. Only supports .NET 6 and Umbraco > 10.2.0
+
 Previous versions of this package are on https://github.com/KOBENDigital/Iconic
 
 ### Umbraco Package
