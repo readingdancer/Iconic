@@ -60,11 +60,7 @@
         $scope.changeConfigType = function(value) {
             $scope.configType = value;
         }
-
-        $scope.toggleOverrideTemplate = function() {
-            $scope.model.package.overrideTemplate = !$scope.model.package.overrideTemplate;
-        }
-
+     
         $scope.openCssFilePicker = function() {
             const config = {
                 select: function(node) {

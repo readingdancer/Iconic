@@ -19,8 +19,7 @@
     <key alias="selectorDescription">Enter a valid regex that extracts the individual icon code</key>
     <key alias="template">Template</key>
     <key alias="templateDescription">Enter an icon template</key>
-    <key alias="backofficeTemplate">Override Backoffice Template</key>
-    <key alias="backofficeTemplateDescription">Activate to have a different icon template in your backoffice. i.e. size, color, ...</key>
+    <key alias="backofficeTemplateDescription">Overrides the Template value when icon is displayed on the backoffice. Allows to have a different icon template in your backoffice. i.e. size, color, ...</key>        
     <key alias="cssFile">CSS file</key>
     <key alias="cssFileDescription">CSS source to style the icon on the backoffice</key>
     <key alias="configType">Configuration type</key>

@@ -7,7 +7,7 @@
 
         function updateTemplate() {
             if ($scope.package && $scope.icon) {
-                if ($scope.package && $scope.package.overrideTemplate) {
+                if ($scope.package && $scope.package.backofficeTemplate) {
                     $scope.template = $scope.package.backofficeTemplate.replace(
                         "{icon}",
                         $scope.icon

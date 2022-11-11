@@ -15,7 +15,8 @@
     <key alias="name">Nombre</key>
     <key alias="selector">Seleccionador</key>
     <key alias="template">Plantilla</key>
-    <key alias="backofficeTemplate">Reemplazar plantilla en backoffice</key>
+	  <key alias="backofficeTemplateDescription">Overrides the Template value when icon is displayed on the backoffice. Allows to have a different icon template in your backoffice. i.e. size, color, ...</key>
+	  <key alias="backofficeTemplate">Reemplazar plantilla en backoffice</key>
     <key alias="cssFile">Archivo Css</key>
     <key alias="rulesFile">Archivo fuente de reglas</key>
     <key alias="rulesFileDescription">De donde extraer la lista de iconos. Si no se elige one, el utilizado para el Archivo CSS se usara por defecto.</key>

@@ -29,12 +29,9 @@
                                 <span class="help-inline" ng-message="required"><localize key="iconicValidation_name">Please enter a template</localize></span>
                             </span>
                         </umb-control-group>
-                        <umb-control-group label="@iconicConfig_backofficeTemplate" description="@iconicConfig_backofficeTemplateDescription">
-                            <umb-toggle checked="model.package.overrideTemplate" on-click="toggleOverrideTemplate()">
-                            </umb-toggle>
-                        </umb-control-group>
+                   
 
-                        <umb-control-group label="Enter a backoffice template" ng-if="model.package.overrideTemplate">
+                        <umb-control-group label="Enter a backoffice template" description="@iconicConfig_backofficeTemplateDescription">
                             <input class="umb-property-editor" name="editBackofficeTemplate" type="text" ng-model="model.package.backofficeTemplate" val-highlight="{{ packageForm.editBackofficeTemplate.$invalid }}" />
                         </umb-control-group>
 
