@@ -55,7 +55,6 @@
                 $scope.model.cancel();
             }
             editorService.close();
-
         }
 
         $scope.changeConfigType = function(value) {

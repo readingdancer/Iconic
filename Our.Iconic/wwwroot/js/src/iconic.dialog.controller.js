@@ -47,14 +47,16 @@
         }
 
         $scope.selectIcon = function(icon) {
-            if (icon == null) return;
+            if (!icon) return;
 
             var iconModel = new Icon(icon, $scope.pckgselected.id);
 
-            var existingIcon = $scope.value.find(x => x.icon == iconModel.icon && x.pickerPackageId == iconModel.packageId)
-            if (existingIcon) {
-                $scope.value.slice($scope.value.indexOf(iconModel), 1);
-                return;
+            if ($scope.value && $scope.value.length > 0) {
+                var existingIcon = $scope.value.find(x => x.icon == iconModel.icon && x.pickerPackageId == iconModel.packageId)
+                if (existingIcon) {
+                    $scope.value.slice($scope.value.indexOf(iconModel), 1);
+                    return;
+                }
             }
 
             if ($scope.model.iconsLimit === 1) {

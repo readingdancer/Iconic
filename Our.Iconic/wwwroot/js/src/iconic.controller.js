@@ -28,8 +28,6 @@ angular.module("umbraco")
                 size: 'small',
                 iconsLimit: 1,
                 filterIcons: true,
-                pickerPackageId: $scope.model.value.packageId,
-                pickerIcons: [$scope.model.value.icon],
                 pickerConfig: $scope.model.config,
                 submit: function(icons) {
                     $scope.selectIcon(icons[0]);
@@ -62,7 +60,7 @@ angular.module("umbraco")
             function initPicker() {
                 $scope.loading = true;
                 if (!angular.isObject($scope.model.value)) {
-                    $scope.model.value = {};
+                    $scope.model.value = undefined;
                 }
 
                 if ($scope.model.value && $scope.model.value.packageId && $scope.model.value.icon) {
