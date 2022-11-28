@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-	<StaticWebAssetBasePath>App_Plugins/Iconic</StaticWebAssetBasePath>
+	<StaticWebAssetBasePath>app_plugins/Iconic</StaticWebAssetBasePath>
 	<ContentTargetFolders>.</ContentTargetFolders>
 	<Description>
 		Highly configurable icon picker for Umbraco.
@@ -12,7 +12,7 @@
 	</Description>
 	<Product>$(AssemblyName)</Product>
 	<PackageTags>umbraco plugin package icon picker editor backoffice umbraco-marketplace</PackageTags>
-	<Version>5.1.0</Version>
+	<Version>5.2.0-beta1</Version>
 	<Authors>Mario Lopez</Authors>
 	<PackageProjectUrl>https://github.com/Skartknet/Iconic</PackageProjectUrl>
 	<PackageIcon>iconic_logo.png</PackageIcon>

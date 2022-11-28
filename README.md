@@ -12,8 +12,8 @@ Use V2 for Umbraco 8\
 Use V1 for Umbraco 7
 
 ### Upgrading to Iconic V5
-The new version 5 of Iconic is built as a <a href="https://learn.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-6.0&tabs=visual-studio" target="_blank">Razor Class Library</a> (RCL). The dll generated contains all the files that otherwise would go into your `App_Plugins` folder.
-If you are upgrading from previous Iconic versions, you will need to remove the Iconic files contained in the `App_Plugins` folder.
+The new version 5 of Iconic is built as a <a href="https://learn.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-6.0&tabs=visual-studio" target="_blank">Razor Class Library</a> (RCL). The dll generated contains all the files that otherwise would go into your `app_plugins` folder.
+If you are upgrading from previous Iconic versions, you will need to remove the Iconic files contained in the `app_plugins` folder.
 
 
 

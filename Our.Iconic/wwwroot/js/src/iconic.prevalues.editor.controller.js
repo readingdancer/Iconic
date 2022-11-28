@@ -89,7 +89,7 @@
 
 
         $scope.filterIconsOverlay = {
-            view: umbRequestHelper.convertVirtualToAbsolutePath("~/App_plugins/Iconic/Views/iconic.dialog.html"),
+            view: umbRequestHelper.convertVirtualToAbsolutePath("~/app_plugins/Iconic/Views/iconic.dialog.html"),
             title: "Select icons",
             size: "small",
             submit: function(icons) {
@@ -140,7 +140,7 @@
         }
 
         function loadPreconfigs() {
-            $http.get(umbRequestHelper.convertVirtualToAbsolutePath("~/App_Plugins/Iconic/preconfigs.json")).then(
+            $http.get(umbRequestHelper.convertVirtualToAbsolutePath("~/app_plugins/Iconic/preconfigs.json")).then(
                 function(response) {
                     $scope.preconfig = response.data.preconfigs;
                 },

@@ -23,7 +23,7 @@ angular.module("umbraco")
             };
 
             $scope.overlay = {
-                view: umbRequestHelper.convertVirtualToAbsolutePath("~/App_plugins/Iconic/Views/iconic.dialog.html"),
+                view: umbRequestHelper.convertVirtualToAbsolutePath("~/app_plugins/Iconic/Views/iconic.dialog.html"),
                 title: "Select an icon",
                 size: 'small',
                 iconsLimit: 1,
