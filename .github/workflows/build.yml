@@ -5,7 +5,7 @@ on:
 
 env:
   SOLUTION: Iconic.sln
-  OUTPUT_PATH: ${{ github.workspace }}\.output
+  OUTPUT_PATH: ${{ github.workspace }}/build.out
 
 jobs:
   build:
