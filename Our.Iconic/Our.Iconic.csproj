@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net6.0;net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
 	<StaticWebAssetBasePath>app_plugins/Iconic</StaticWebAssetBasePath>
@@ -12,7 +12,7 @@
 	</Description>
 	<Product>$(AssemblyName)</Product>
 	<PackageTags>umbraco plugin package icon picker editor backoffice umbraco-marketplace</PackageTags>
-	<Version>5.2.0-beta1</Version>
+	<Version>5.2.0-beta2</Version>
 	<Authors>Mario Lopez</Authors>
 	<PackageProjectUrl>https://github.com/Skartknet/Iconic</PackageProjectUrl>
 	<PackageIcon>iconic_logo.png</PackageIcon>
@@ -38,9 +38,14 @@
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.9" />
     <PackageReference Include="Umbraco.Cms.Core" Version="10.2.0" />
+  </ItemGroup>
+	 
+  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.9" />
+    <PackageReference Include="Umbraco.Cms.Core" Version="11.0.0" />
   </ItemGroup>
 
   <ItemGroup>
