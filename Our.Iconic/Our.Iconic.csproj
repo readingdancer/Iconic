@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-	<StaticWebAssetBasePath>app_plugins/Iconic</StaticWebAssetBasePath>
+	<StaticWebAssetBasePath>App_Plugins/Iconic</StaticWebAssetBasePath>
 	<ContentTargetFolders>.</ContentTargetFolders>
 	<Description>
 		Highly configurable icon picker for Umbraco.
@@ -73,9 +73,6 @@
       <CopyToPublishDirectory>Always</CopyToPublishDirectory>
     </Content>
     <Content Update="wwwroot\lang\es-ES.xml">
-      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\package.manifest">
       <CopyToPublishDirectory>Always</CopyToPublishDirectory>
     </Content>
     <Content Update="wwwroot\preconfigs.json">

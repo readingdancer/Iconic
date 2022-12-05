@@ -8,7 +8,7 @@ namespace Our.Iconic.RCL
     [DataEditor(
         alias: "our.iconic",
         name: "Iconic",
-        view: "/app_plugins/Iconic/Views/iconic.html",
+        view: "/App_Plugins/Iconic/Views/iconic.html",
         Icon = "icon-binoculars",
         Group = "Pickers",
         ValueType = ValueTypes.Json)]
