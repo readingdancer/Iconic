@@ -6,8 +6,8 @@ on:
 
 env:
   SOLUTION: Iconic.sln
-  PLUGIN_PROJECT: Our.Iconic\Our.Iconic.csproj
-  CORE_PROJECT: Our.Iconic.Core\Our.Iconic.Core.csproj
+  PLUGIN_PROJECT: Our.Iconic/Our.Iconic.csproj
+  CORE_PROJECT: Our.Iconic.Core/Our.Iconic.Core.csproj
   OUTPUT_PATH: ${{ github.workspace }}/build.out
   
 jobs:
