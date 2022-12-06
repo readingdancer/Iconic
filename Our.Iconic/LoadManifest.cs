@@ -14,17 +14,17 @@ namespace Our.Iconic.RCL
                 PackageName = "Iconic",
                 Scripts = new[]
                 {
-                    "/app_plugins/Iconic/js/build/findPolyfill.min.js",
-                    "/app_plugins/Iconic/js/src/iconic.models.js",
-                    "/app_plugins/Iconic/js/src/iconic.controller.js",
-                    "/app_plugins/Iconic/js/src/iconic.dialog.controller.js",
-                    "/app_plugins/Iconic/js/src/iconic.prevalues.controller.js",
-                    "/app_plugins/Iconic/js/src/iconic.directives.js",
-                    "/app_plugins/Iconic/js/src/iconic.prevalues.editor.controller.js"
+                    "/App_Plugins/Iconic/js/build/findPolyfill.min.js",
+                    "/App_Plugins/Iconic/js/src/iconic.models.js",
+                    "/App_Plugins/Iconic/js/src/iconic.controller.js",
+                    "/App_Plugins/Iconic/js/src/iconic.dialog.controller.js",
+                    "/App_Plugins/Iconic/js/src/iconic.prevalues.controller.js",
+                    "/App_Plugins/Iconic/js/src/iconic.directives.js",
+                    "/App_Plugins/Iconic/js/src/iconic.prevalues.editor.controller.js"
                 },
                 Stylesheets = new[]
                 {
-                    "/app_plugins/Iconic/Styles/iconic.css"
+                    "/App_Plugins/Iconic/Styles/iconic.css"
                 }
             });
         }

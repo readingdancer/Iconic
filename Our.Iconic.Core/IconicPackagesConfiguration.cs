@@ -7,7 +7,7 @@ namespace Our.Iconic.Core
 {
     public class IconicPackagesConfiguration
     {
-        [ConfigurationField("packages", "Packages configuration", "/app_plugins/Iconic/Views/iconic.prevalues.html", Description = "Add the font packages you want to use")]
-        public IEnumerable<Package> Packages { get; set; }        
+        [ConfigurationField("packages", "Packages configuration", "/App_Plugins/Iconic/Views/iconic.prevalues.html", Description = "Add the font packages you want to use")]
+        public IEnumerable<Package> Packages { get; set; }
     }
 }
