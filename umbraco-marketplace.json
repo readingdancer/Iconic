@@ -1,0 +1,36 @@
+{
+    "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json",
+    "AuthorDetails": {
+        "ImageUrl": "https://github.com/skartknet",
+        "Contributors": [
+            {
+                "Name": "Robert Foster",
+                "Url": "https://github.com/robertjf",
+            },
+            {
+                "Name": "Heather Floyd",
+                "Url": "https://github.com/hfloyd",
+            },
+            {
+                "Name": "Migaroez",
+                "Url": "https://github.com/hfloyd/Migaroez"
+            },
+            {
+                "Name": "Laurence Gillian",
+                "Url": "https://github.com/uniquelau"
+            },
+            {
+                "Name": "Rune Antonsen",
+                "Url": "https://github.com/ruant"
+            },
+            {
+                "Name": "Jeniston",
+                "Url": "https://github.com/jenistonj"
+            }
+        ]
+    },
+    "Category": "Editor Tools",
+    "DiscussionForumUrl": "https://our.umbraco.com/packages/backoffice-extensions/iconic",
+    "LicenseTypes": ["Free"],
+    "PackageType": "Package"
+}
