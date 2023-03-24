@@ -1,5 +1,5 @@
 # Iconic
-Highly configurable icon picker for Umbraco.
+Iconic is a highly configurable package that allows you to easily add icon libraries to your Umbraco content.
 
 ## Introduction
 With Iconic you will be able to create a property editor that can use virtually any font package out there and not only that, you will  be able to select your icon from more than one package on the same property.
@@ -25,12 +25,6 @@ If you are upgrading from previous Iconic versions, follow these steps (you shou
 ### Nuget
 [![NuGet](https://buildstats.info/nuget/Our.Iconic)](https://www.nuget.org/packages/Our.Iconic/)
 
-You can run the following command from within Visual Studio:
-
-    PM> Install-Package Our.Iconic
-
-### Umbraco Package
-https://our.umbraco.com/packages/backoffice-extensions/iconic/
 
 
 ## Configuration
@@ -45,4 +39,4 @@ Username: `admin@admin.com`\
 Password: `Password123`
 
 
-Handmade by Mario Lopez - 2022 @skartknet
+Handmade by Mario Lopez - 2023 @skartknet

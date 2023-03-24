@@ -32,10 +32,17 @@
     },
     "Category": "Editor Tools",
     "DiscussionForumUrl": "https://our.umbraco.com/packages/backoffice-extensions/iconic",
+    "DocumentationUrl": "https://github.com/skartknet/Iconic/tree/master/Documentation",
     "LicenseTypes": ["Free"],
     "PackageType": "Package",
     "Title": "Iconic",
     "PackagesByAuthor": ["Our.Umbraco.ConditionalDisplayers"],
     "Tags":["icons", "icon", "fontawesome", "font awesome"],
-    "Description": "Iconic is a highly configurable package that allows you to easily add icon libraries to your Umbraco content."
+    "Description": "Iconic is a highly configurable package that allows you to easily add icon libraries to your Umbraco content.",
+    "Screenshots": [
+        {
+          "ImageUrl": "",
+          "Caption": ""
+        }
+      ]
 }

@@ -14,7 +14,7 @@ jobs:
   publish-nuget:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Get Release Version
       id: package_version
@@ -54,9 +54,9 @@ jobs:
     - name: Create Nuget Packages
       run: dotnet pack --configuration Release -o  ${{ env.OUTPUT_PATH }}
       
-    - name: Publish to NuGet
-      working-directory: ${{ env.OUTPUT_PATH }}
-      run: dotnet nuget push *.nupkg --skip-duplicate --api-key ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+    # - name: Publish to NuGet
+    #   working-directory: ${{ env.OUTPUT_PATH }}
+    #   run: dotnet nuget push *.nupkg --skip-duplicate --api-key ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
 
     - uses: avakar/tag-and-release@v1
       name: Create Release Tag v${{ steps.package_version.outputs.version }}

@@ -12,8 +12,8 @@ Version 5 is no longer multi-targeted. Only supports .NET 6 and Umbraco > 10.2.0
 
 Previous versions of this package are on https://github.com/KOBENDigital/Iconic
 
-### Umbraco Package
-https://our.umbraco.com/packages/backoffice-extensions/iconic/
+### Umbraco Marketplace
+https://marketplace.umbraco.com/package/our.iconic
 
 ---
 
