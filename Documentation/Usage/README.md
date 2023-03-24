@@ -10,11 +10,11 @@
 ## <a name="using"></a> Using the DataType
 Once you have configured your datatype, you can use it as a property editor.
 
-![Create property](../select-editor.png)
+![Create property](select-editor.png)
 
 To add or modify your icon just click on the placeholder, this will open a dialog where you can select form your configured packages. Once a package is selected, all the icons will be displayed below.
 
-![Using Iconic](../using-iconic.png)
+![Using Iconic](using-iconic.png)
 
 
 ## <a name="displaying"></a> Displaying the icon
