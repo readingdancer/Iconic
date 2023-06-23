@@ -19,9 +19,9 @@ namespace Our.Iconic.Core.ValueConverters
     {
         private readonly ConfiguredPackagesCollection _configuredPackages;
 
-        public IconicValueConverter(IDataTypeService dataTypeService)
+        public IconicValueConverter(IDataTypeService dataTypeService, ConfiguredPackagesCollection configuredPackages)
         {
-            _configuredPackages = new ConfiguredPackagesCollection(dataTypeService);
+            _configuredPackages = configuredPackages;
         }
         public bool IsConverter(IPublishedPropertyType propertyType)
              => propertyType.EditorAlias.Equals("our.iconic");
