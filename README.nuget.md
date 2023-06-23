@@ -6,7 +6,7 @@ With Iconic you will be able to create a property editor that can use virtually 
 
 ## Installation
 
-This repository includes multi-targeted version 3 for Umbraco 8, 9 & 10.
+This repository includes multi-targeted version 3 for Umbraco 8, 9, 10, 11.
 
 Version 5 is no longer multi-targeted. Only supports .NET 6 and Umbraco > 10.2.0
 
@@ -17,4 +17,4 @@ https://marketplace.umbraco.com/package/our.iconic
 
 ---
 
-Handmade by Mario Lopez - 2022
+Handmade by Mario Lopez - 2023
