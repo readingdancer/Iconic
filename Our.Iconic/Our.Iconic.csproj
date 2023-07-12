@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
@@ -22,6 +22,102 @@
 	<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="src\background.png" />
+    <None Remove="src\js\build\findPolyfill.min.js" />
+    <None Remove="src\js\src\iconic.controller.js" />
+    <None Remove="src\js\src\iconic.dialog.controller.js" />
+    <None Remove="src\js\src\iconic.directives.js" />
+    <None Remove="src\js\src\iconic.models.js" />
+    <None Remove="src\js\src\iconic.prevalues.controller.js" />
+    <None Remove="src\js\src\iconic.prevalues.editor.controller.js" />
+    <None Remove="src\lang\en-US.xml" />
+    <None Remove="src\lang\es-ES.xml" />
+    <None Remove="src\Styles\iconic.css" />
+    <None Remove="src\Styles\iconic.min.css" />
+    <None Remove="src\Styles\iconic.min.css.map" />
+    <None Remove="src\Styles\iconic.scss" />
+    <None Remove="src\Views\iconic.dialog.html" />
+    <None Remove="src\Views\iconic.edit.dialog.html" />
+    <None Remove="src\Views\iconic.html" />
+    <None Remove="src\Views\iconic.prevalues.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="src\background.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\js\build\findPolyfill.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\js\src\iconic.controller.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\js\src\iconic.dialog.controller.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\js\src\iconic.directives.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\js\src\iconic.models.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\js\src\iconic.prevalues.controller.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\js\src\iconic.prevalues.editor.controller.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\lang\en-US.xml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\lang\es-ES.xml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\Styles\iconic.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\Styles\iconic.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\Styles\iconic.min.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\Styles\iconic.scss">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\Views\iconic.dialog.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\Views\iconic.edit.dialog.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\Views\iconic.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\Views\iconic.prevalues.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
 
 	<ItemGroup>
 		<None Include="..\iconic_logo.png">
@@ -53,6 +149,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="src\preconfigs.json">
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
     <Content Update="wwwroot\js\build\findPolyfill.min.js">
       <CopyToPublishDirectory>Always</CopyToPublishDirectory>
     </Content>
