@@ -17,7 +17,7 @@
     },
     {
       "name": "Material Icons",
-      "selector": "\"(\\w+)\":\\s\"[^\"]",
+      "selector": "(\\w+) [a-zA-Z0-9_]*",
       "template": "<i class=\"material-icons\">{icon}</i>"
     },
     {

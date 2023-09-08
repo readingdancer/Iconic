@@ -21,11 +21,11 @@
     <key alias="templateDescription">Enter an icon template</key>
     <key alias="backofficeTemplateDescription">Overrides the Template value when icon is displayed on the backoffice. Allows to have a different icon template in your backoffice. i.e. size, color, ...</key>        
     <key alias="cssFile">CSS file</key>
-    <key alias="cssFileDescription">CSS source to style the icon on the backoffice</key>
+    <key alias="cssFileDescription">CSS source to style the icon in the backoffice</key>
     <key alias="configType">Configuration type</key>
     <key alias="selectConfig">Select configuration</key>
     <key alias="rulesFile">Rules source file</key>
-    <key alias="rulesFileDescription">Where you want to extract the icons list from. If none selected, it will use the chosen CSS file.</key>
+    <key alias="rulesFileDescription">File used to extract the icon list. If none selected, the CSS file above will be used.</key>
     <key alias="extractedStyles">Extracted styles</key>
     <key alias="remove">Remove</key>
     <key alias="icons">Icons</key>
@@ -36,13 +36,16 @@
     <key alias="save">Save</key>
     <key alias="cancel">Cancel</key>
     <key alias="preview">Preview</key>
+    <key alias="invalidConfig">Invalid Configuration</key>
   </area>
   <area alias="iconicErrors">
-    <key alias="analysing">There was an error extracting icon rules. Please check the files' paths and Selector regex.</key>
-    <key alias="loading_preconfigs">Error loading preconfigs file.</key>
-    <key alias="loadingCss">Error loading CSS file.</key>
-    <key alias="no_rules">The extracted icons are 0. Please check that the Selector regex is correct.</key>
-    <key alias="selector">Error with Selector, please review it.</key>
+    <key alias="analysing">There was an error extracting icon rules. Please check the files' paths and selector regex.</key>
+    <key alias="loading_preconfigs">Error loading the preconfigs file.</key>
+    <key alias="loadingCss">Error loading the CSS file.</key>
+    <key alias="no_rules">No icons were extracted, please check that the selector regex is correct.</key>
+    <key alias="regexIssue">Error loading the regex, please check that it is a valid selector.</key>
+    <key alias="selector">Error with selector, please review it.</key>
+    <key alias="codepointsError">If you are currently using Visual Studio's built in web server, it does not support the ".codepoints" extension, if you are using IIS you may need to add the MIME type to your server, or you could just rename the file with a ".css" extension.</key>
   </area>
   <area alias="iconicValidation">
     <key alias="name">Please enter a name</key>

@@ -30,7 +30,6 @@
             },
             function () {
               $scope.previewIcon = null;
-              displayError("iconicErrors_no_rules");
               $scope.previewButtonState = "error";
             }
           );
@@ -111,8 +110,8 @@
         pickerIcons: $scope.model.package.filteredIcons,
         pickerPackageId: $scope.model.package.id,
         pickerConfig: {
-          packages: [$scope.model.package],
-        },
+          packages: [$scope.model.package]
+        }
       };
 
       $scope.openFilterIconsOverlay = function () {
@@ -137,20 +136,20 @@
         var cssUri = isExternalUri(uri)
           ? uri
           : umbRequestHelper.convertVirtualToAbsolutePath(
-              "~/" + uri.replace(/wwwroot\//i, "")
+              `~/${uri.replace(/wwwroot\//i, "")}`
             );
 
         $http.get(cssUri).then(
-          function (response) {
+          function () {
             assetsService.loadCss(cssUri);
           },
-          function (response) {
+          function () {
             displayError("iconicErrors_loadingCss");
           }
         );
       }
 
-      function loadPreconfigs() {
+      function loadPreConfigs() {
         $http
           .get(
             umbRequestHelper.convertVirtualToAbsolutePath(
@@ -161,7 +160,7 @@
             function (response) {
               $scope.preconfig = response.data.preconfigs;
             },
-            function (response) {
+            function () {
               displayError("iconicErrors_loading_preconfigs");
             }
           );
@@ -171,33 +170,40 @@
         return uri.indexOf("://") > -1;
       }
 
-      function displayError(alias) {
-        localizationService.localize(alias).then(function (response) {
-          notificationsService.error("Invalid Configuration", response);
+        function displayError(alias) {
+            var invalidConfigStr;
+            localizationService.localize("iconicConfig_invalidConfig").then(function (response) {
+              invalidConfigStr = response;
+          });
+
+          localizationService.localize(alias).then(function (response) {
+              notificationsService.error(invalidConfigStr, response);
         });
       }
 
       function openTreePicker(config) {
-        var picker = {
-          title: "Select file",
-          section: "settings",
-          treeAlias: "files",
-          entityType: "file",
-          filter: function (i) {
-            if (
-              i.name.indexOf(".min.css") === -1 &&
-              i.name.indexOf(".css") === -1
-            ) {
-              return true;
+        const picker = {
+            title: "Select file",
+            section: "settings",
+            treeAlias: "files",
+            entityType: "file",
+            filter: function (i) {
+                if (
+                    i.name.indexOf(".min.css") === -1 &&
+                        i.name.indexOf(".css") === -1 &&
+                        i.name.indexOf(".codepoints") === -1
+                ) {
+                    return true;
+                }
+                return false;
+            },
+            filterCssClass: "not-allowed",
+            close: function () {
+                editorService.close();
             }
-          },
-          filterCssClass: "not-allowed",
-          close: function () {
-            editorService.close();
-          },
         };
 
-        var args = _.assign(picker, config);
+        const args = _.assign(picker, config);
 
         editorService.treePicker(args);
       }
@@ -212,20 +218,21 @@
 
         if (!item.sourcefile) item.sourcefile = item.cssfile;
 
-        var path = isExternalUri(item.sourcefile)
-          ? item.sourcefile
-          : umbRequestHelper.convertVirtualToAbsolutePath(
-              "~/" + item.sourcefile.replace("wwwroot/", "")
+        const path = isExternalUri(item.sourcefile)
+            ? item.sourcefile
+            : umbRequestHelper.convertVirtualToAbsolutePath(
+                `~/${item.sourcefile.replace("wwwroot/", "")}`
             );
 
         $http.get(path).then(
           function (response) {
+            var pattern;
             item.extractedStyles = [];
-
             try {
-              var pattern = new RegExp(item.selector, "g");
+              pattern = new RegExp(item.selector, "g");
             } catch (e) {
               $scope.error = e.message;
+              displayError("iconicErrors_regexIssue");
               errorCallback();
               return;
             }
@@ -243,14 +250,18 @@
               errorCallback();
             }
           },
-          function (response) {
-            displayError("iconicErrors_loadingCss");
-            errorCallback();
+            function (response) {
+                if (response.config.url.indexOf(".codepoints") > -1 && response.status === 404) {
+                    displayError("iconicErrors_codepointsError");
+                } else {
+                    displayError("iconicErrors_loadingCss");
+                }
+                errorCallback();
           }
         );
       }
 
-      loadPreconfigs();
+      loadPreConfigs();
       $scope.loadPreview();
     }
   );
